@@ -779,7 +779,7 @@ details.accordion p { margin: 14px 0 0; color: var(--muted); }
   padding: 6px 14px;
   border-radius: 999px;
 }
-.service-cta { margin-top: 26px; }
+.service-cta { margin-top: 26px; text-align: right; }
 
 @media (max-width: 620px) {
   .service-card { padding: 28px 22px; }
