@@ -290,6 +290,31 @@ nav.main-nav a:hover, nav.main-nav a.active { color: var(--lilac-deep); }
   border: 6px solid #fff;
 }
 .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+.hero-name-badge {
+  position: absolute;
+  z-index: 2;
+  bottom: 16px;
+  left: 16px;
+  background: #fff;
+  padding: 10px 18px;
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--plum);
+  white-space: nowrap;
+}
+.hero-name-badge span {
+  display: block;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+@media (max-width: 420px) { .hero-name-badge { padding: 8px 14px; font-size: 0.85rem; } }
 
 /* Three words strip */
 .words-strip {
@@ -456,6 +481,16 @@ blockquote.pull-quote {
   overflow: hidden;
 }
 .team-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Two therapists side by side (About page top) */
+.team-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch; }
+@media (max-width: 760px) { .team-duo { grid-template-columns: 1fr; } }
+.team-duo .team-card { grid-template-columns: 100px 1fr; gap: 18px; padding: 28px; border: none; }
+.team-duo .team-photo { width: 100px; height: 100px; }
+.team-duo .team-photo img { object-position: center 20%; }
+.team-card-andrea { background: var(--lilac-50); }
+.team-card-ashleigh { background: var(--sand); }
+@media (max-width: 600px) { .team-duo .team-card { grid-template-columns: 1fr; text-align: center; } }
 
 /* Fees table */
 .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
