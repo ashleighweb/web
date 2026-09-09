@@ -231,5 +231,21 @@
 </footer>
 
 <script src="/script.js"></script>
+<script>
+(function () {
+  var params = new URLSearchParams(location.search);
+  var wanted = params.get('therapist');
+  if (!wanted) return;
+  var select = document.getElementById('therapist');
+  if (!select) return;
+  var target = wanted.trim().toLowerCase();
+  for (var i = 0; i < select.options.length; i++) {
+    if (select.options[i].value.toLowerCase() === target) {
+      select.value = select.options[i].value;
+      break;
+    }
+  }
+})();
+</script>
 </body>
 </html>

@@ -665,6 +665,7 @@ footer ul a:hover { color: #fff; }
 
 /* Utility */
 .text-center { text-align: center; }
+.text-right { text-align: right; }
 .mt-40 { margin-top: 40px; }
 .mb-0 { margin-bottom: 0; }
 .two-col-text { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
