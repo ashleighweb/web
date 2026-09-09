@@ -158,7 +158,7 @@ header.site-header {
   gap: 10px;
   font-family: var(--serif);
 }
-.brand img { width: 34px; height: 34px; }
+.brand img { width: 42px; height: 41px; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.1; }
 .brand-name { font-size: 1.15rem; color: var(--plum); font-weight: 600; }
 .brand-tag { font-family: var(--sans); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
@@ -591,3 +591,87 @@ details.accordion p { margin: 14px 0 0; color: var(--muted); }
   padding: 6px 12px;
   border-radius: 999px;
 }
+
+/* ===== Services page: sticky jump bar + uniform cards ===== */
+.service-nav {
+  position: sticky;
+  top: 69px;
+  z-index: 90;
+  background: rgba(251, 247, 242, 0.94);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-warm);
+  padding: 12px 0;
+}
+.service-nav .container {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.service-nav .container::-webkit-scrollbar { display: none; }
+.service-pill {
+  flex-shrink: 0;
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: var(--card);
+  border: 1px solid var(--border-warm);
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--plum);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+.service-pill:hover { background: var(--lilac-50); border-color: var(--lilac); }
+.service-pill.active {
+  background: var(--lilac-deep);
+  color: #fff;
+  border-color: var(--lilac-deep);
+}
+
+.service-card {
+  background: var(--card);
+  border: 1px solid var(--border-warm);
+  border-radius: var(--radius);
+  padding: 40px 38px;
+  margin-bottom: 26px;
+  scroll-margin-top: 150px;
+}
+.service-card .service-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.service-card .service-head h2 { margin: 0; }
+.service-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--lilac-50);
+  color: var(--lilac-deep);
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.status-pill {
+  background: var(--sand);
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+.service-cta { margin-top: 26px; }
+
+@media (max-width: 620px) {
+  .service-card { padding: 28px 22px; }
+}
+
+/* Portrait book cover */
+.book-cover-frame img { width: 100%; height: auto; }

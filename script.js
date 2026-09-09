@@ -43,3 +43,25 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+  // Services page: highlight the jump-bar pill for the section in view
+  var pills = document.querySelectorAll(".service-pill");
+  if (pills.length) {
+    var sections = ["counselling", "somatic", "wellness", "reiki"]
+      .map(function (id) { return document.getElementById(id); })
+      .filter(Boolean);
+    var setActive = function (id) {
+      pills.forEach(function (p) {
+        p.classList.toggle("active", p.getAttribute("href") === "#" + id);
+      });
+    };
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px" }
+    );
+    sections.forEach(function (sec) { observer.observe(sec); });
+  }
