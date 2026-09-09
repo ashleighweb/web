@@ -204,7 +204,7 @@ nav.main-nav a:hover, nav.main-nav a.active { color: var(--lilac-deep); }
     right: 0;
     background: var(--cream);
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-end;
     padding: 20px 24px 26px;
     gap: 18px;
     border-bottom: 1px solid var(--border-warm);
@@ -718,45 +718,18 @@ details.accordion p { margin: 14px 0 0; color: var(--muted); }
 .book-cover-frame img { width: 100%; height: auto; }
 
 /* ===== BACP registered member badge (footer) ===== */
-.bacp-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
+.bacp-badge-card {
+  display: inline-block;
   margin-top: 18px;
-  padding: 12px 16px;
-  border: 1px solid rgba(214, 199, 230, 0.35);
+  padding: 14px 16px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.05);
+  background: #fff;
+  box-shadow: var(--shadow-sm);
 }
-.bacp-badge .bacp-mark {
-  font-family: var(--serif);
-  font-size: 0.92rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  color: #F3EBD7;
-  padding: 7px 10px;
-  border: 1.5px solid rgba(230, 185, 138, 0.8);
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-.bacp-badge .bacp-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.35;
-  font-size: 0.86rem;
-  font-weight: 600;
-  color: #fff;
-}
-.bacp-badge .bacp-text em {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 0.78rem;
-  color: #C9B9DA;
-}
+.bacp-badge-card img { display: block; width: 190px; height: auto; }
 @media (max-width: 600px) {
-  .bacp-badge { padding: 10px 12px; gap: 10px; }
-  .bacp-badge .bacp-text { font-size: 0.8rem; }
-  .bacp-badge .bacp-text em { font-size: 0.72rem; }
+  .bacp-badge-card { padding: 10px 12px; }
+  .bacp-badge-card img { width: 160px; }
 }
 
 @media (max-width: 620px) {
