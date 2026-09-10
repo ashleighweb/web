@@ -671,25 +671,23 @@ footer ul a:hover { color: #fff; }
 .quote-heading::after { content: "\201D"; }
 
 /* Rooted in the Community: small practice photo in a soft backing, text alongside */
-.community-split { display: grid; grid-template-columns: 300px 1fr; gap: 52px; align-items: center; }
+.community-band { overflow: hidden; }
+.community-split { display: grid; grid-template-columns: 1fr 400px; gap: 48px; align-items: center; }
+.community-split h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); }
+.community-split .lede { color: #D7C7E6; }
 .community-photo-wrap { text-align: center; }
-.community-photo {
-  background: var(--lilac-50);
-  border: 6px solid #fff;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow);
-  padding: 12px;
-}
-.community-photo img {
+.community-photo-wrap img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: calc(var(--radius-sm) - 8px);
+  max-width: 400px;
+  margin: 0 auto;
 }
-.community-caption { font-size: 0.82rem; color: var(--muted); margin-top: 10px; }
 @media (max-width: 760px) {
   .community-split { grid-template-columns: 1fr; gap: 28px; }
-  .community-photo-wrap { max-width: 320px; margin: 0 auto; }
+  .community-split > div:first-child { order: 2; text-align: center; }
+  .community-split .lede { margin-left: auto; margin-right: auto; }
+  .community-photo-wrap { order: 1; max-width: 320px; margin: 0 auto; }
 }
 
 
