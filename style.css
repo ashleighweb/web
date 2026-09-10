@@ -670,21 +670,26 @@ footer ul a:hover { color: #fff; }
 .quote-heading::before { content: "\201C"; }
 .quote-heading::after { content: "\201D"; }
 
-/* Practice exterior photo, framed to sit inside the site's card language */
-.practice-photo {
-  max-width: 620px;
-  margin: 36px auto 0;
-  border-radius: var(--radius-sm);
-  overflow: hidden;
-  box-shadow: var(--shadow);
+/* Rooted in the Community: small practice photo in a soft backing, text alongside */
+.community-split { display: grid; grid-template-columns: 300px 1fr; gap: 52px; align-items: center; }
+.community-photo-wrap { text-align: center; }
+.community-photo {
+  background: var(--lilac-50);
   border: 6px solid #fff;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  padding: 12px;
 }
-.practice-photo img { width: 100%; height: auto; display: block; }
-.practice-photo-caption {
-  text-align: center;
-  font-size: 0.82rem;
-  color: var(--muted);
-  margin-top: 10px;
+.community-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: calc(var(--radius-sm) - 8px);
+}
+.community-caption { font-size: 0.82rem; color: var(--muted); margin-top: 10px; }
+@media (max-width: 760px) {
+  .community-split { grid-template-columns: 1fr; gap: 28px; }
+  .community-photo-wrap { max-width: 320px; margin: 0 auto; }
 }
 
 
