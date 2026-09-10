@@ -1,4 +1,39 @@
 User-agent: *
 Allow: /
 
+# AI answer engines and assistants, explicitly allowed so Ashleigh's site
+# can be read and cited by ChatGPT, Perplexity, Gemini, Copilot and Claude.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
 Sitemap: https://www.adcounsellingnewtownabbey.co.uk/sitemap.xml
