@@ -29,7 +29,7 @@
 <link rel="stylesheet" href="/style.css">
 <style>
 /* Look 2 preview styles, inlined (removed from main style.css) */
-.duo-split { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+.duo-split { display: grid; grid-template-columns: 1.35fr 1fr; gap: 26px; }
 @media (max-width: 760px) { .duo-split { grid-template-columns: 1fr; } }
 .split-panel {
   display: flex; flex-direction: column; align-items: center; gap: 10px;
@@ -53,6 +53,14 @@
 .split-name { font-family: var(--serif); font-size: 1.7rem; font-weight: 600; color: var(--plum); }
 .split-role { font-size: 0.76rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .split-cta { margin-top: 10px; font-size: 0.85rem; font-weight: 600; color: var(--terracotta); }
+/* Ashleigh is the founder, her panel leads and is more prominent */
+.split-panel.split-ashleigh { padding: 54px 34px 44px; }
+.split-panel.split-ashleigh .split-photo { width: 160px; height: 160px; border-width: 5px; }
+.split-panel.split-ashleigh .split-name { font-size: 1.95rem; }
+.split-panel.split-ashleigh .split-role { color: var(--terracotta); }
+.split-panel.split-andrea .split-photo { width: 112px; height: 112px; }
+.split-panel.split-andrea .split-name { font-size: 1.3rem; }
+
 </style>
 
 </head>
@@ -92,10 +100,10 @@
   <div class="container">
     <p class="kicker">My Practice</p>
     <h2>Two therapists, one gentle practice</h2>
-    <p class="lede">We each hold our own sessions at the clinic, so you can choose the therapist who feels right for you. Select a name to read their full story.</p>
+    <p class="lede">I'm Ashleigh Duncan, founder of the practice. Alongside me, my associate counsellor Andrea Black holds her own sessions at the clinic.</p>
 
     <!-- PICKER START -->
-    <div class="duo-split mt-40" role="tablist" aria-label="Choose a therapist">
+    <div class="duo-split mt-40" role="tablist" aria-label="Meet the practice">
       <button type="button" class="split-panel split-ashleigh is-active" id="tab-ashleigh" role="tab" aria-selected="true" aria-controls="view-ashleigh" data-person="ashleigh">
         <span class="split-photo"><img src="/images/ashleigh-headshot.jpg" alt="Ashleigh Duncan, MBACP counsellor and founder" width="130" height="173" loading="lazy"></span>
         <span class="split-name">Ashleigh Duncan</span>
