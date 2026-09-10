@@ -166,7 +166,7 @@
         <div>
           <h3>Andrea Black MBACP</h3>
           <p>"Counselling is always a brave choice." Andrea brings over 15 years of experience and more than 6,000 supervised clinical hours, using an integrative approach across person centred, psychodynamic and CBT work. Available Tuesday mornings, Wednesday evenings and weekends.</p>
-          <a href="/contact.html" class="card-link">Book with Andrea &rarr;</a>
+          <p class="text-right mb-0"><button type="button" class="card-link" id="andrea-info-btn" aria-haspopup="dialog" aria-controls="andrea-modal">More information &rarr;</button></p>
         </div>
       </div>
     </div>
@@ -247,5 +247,83 @@
     <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/></svg>
   </a>
 </div>
+
+<div class="modal-overlay" id="andrea-modal" hidden>
+  <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="andrea-modal-title">
+    <button type="button" class="modal-close" id="andrea-modal-close" aria-label="Close">&times;</button>
+
+    <div class="modal-hero">
+      <img src="/images/andrea-headshot.jpg" alt="Andrea Black, MBACP associate counsellor at AD Counselling & Wellness" width="140" height="140" loading="lazy">
+      <div>
+        <p class="kicker">Associate Counsellor</p>
+        <h2 id="andrea-modal-title">Empowering your journey</h2>
+      </div>
+    </div>
+    <p>Therapy offers a calm space to make sense of what feels heavy. My clients come to me with anxiety, low mood, stress, trauma, relationship struggles, or simply a sense that something isn't right. I help them slow down, understand their emotions and find steadier ground.</p>
+    <p>I use an integrative approach, drawing on person centred, psychodynamic and CBT practice, and I tailor therapy to each person's needs, pace and goals. Together we explore what's going on, build emotional understanding and develop practical tools for coping and resilience, so you leave feeling steadier, clearer and more able to move forward.</p>
+    <p>With more than 15 years of experience and over 6,000 supervised clinical hours, I've worked with all age groups through historical issues, grief and loss, relationship and family difficulties, and the pressures of everyday life such as work stress, caring responsibilities and burnout. I believe we all deserve a safe place to talk, but more importantly, to feel heard.</p>
+    <p class="form-note" style="font-style:italic;">"Counselling is always a brave choice, giving you the time to explore your options in a safe, non judgemental, caring space." (Andrea Black)</p>
+
+    <p class="kicker mt-40">How I Work</p>
+    <h3 class="mb-0">Integrative therapy, tailored to you</h3>
+    <div class="grid-3 mt-40">
+      <div class="card"><h3>Person Centred</h3><p>A warm, non judgemental space led by your pace, so you always feel heard.</p></div>
+      <div class="card"><h3>Psychodynamic</h3><p>Gently noticing how the past can shape the present, at a speed that feels safe.</p></div>
+      <div class="card"><h3>CBT</h3><p>Practical tools for the thought patterns that hold you back, built into everyday life.</p></div>
+    </div>
+
+    <p class="kicker mt-40">What Sessions Can Support</p>
+    <div class="tag-row mt-40">
+      <span class="tag">Anxiety</span>
+      <span class="tag">Low mood</span>
+      <span class="tag">Stress</span>
+      <span class="tag">Trauma</span>
+      <span class="tag">Grief and loss</span>
+      <span class="tag">Relationship struggles</span>
+      <span class="tag">Blended families</span>
+      <span class="tag">Separation and divorce</span>
+      <span class="tag">Work stress</span>
+      <span class="tag">School pressures</span>
+      <span class="tag">Family illness</span>
+      <span class="tag">Caring responsibilities</span>
+      <span class="tag">Autism and ADHD</span>
+      <span class="tag">Addiction</span>
+      <span class="tag">Substance misuse</span>
+    </div>
+
+    <p class="lede mt-40">I manage my own practice and diary, and I'm available for sessions in the clinic on Tuesday mornings, Wednesday evenings and weekends.</p>
+    <div class="hero-actions">
+      <a href="/contact.html" class="btn btn-primary">Book a Session</a>
+      <a href="/services.html" class="btn btn-secondary">Explore Services</a>
+    </div>
+    <p class="form-note">You can also find Andrea on <a href="https://www.psychologytoday.com/gb/counselling/andrea-black-newtownabbey/1719235" target="_blank" rel="noopener">Psychology Today</a> and the <a href="https://nationalcounsellingsociety.org/counsellors/ncs14-01645" target="_blank" rel="noopener">National Counselling Society</a>.</p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var overlay = document.getElementById('andrea-modal');
+  var openBtn = document.getElementById('andrea-info-btn');
+  var closeBtn = document.getElementById('andrea-modal-close');
+  if (!overlay || !openBtn || !closeBtn) return;
+
+  function openModal() {
+    overlay.hidden = false;
+    requestAnimationFrame(function () { overlay.classList.add('open'); });
+    document.body.classList.add('modal-open');
+    closeBtn.focus();
+  }
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.classList.remove('modal-open');
+    setTimeout(function () { overlay.hidden = true; }, 220);
+    openBtn.focus();
+  }
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !overlay.hidden) closeModal(); });
+})();
+</script>
 </body>
 </html>
