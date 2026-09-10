@@ -247,15 +247,21 @@ nav.main-nav a:hover, nav.main-nav a.active { color: var(--lilac-deep); }
 }
 .hero h1 { margin-bottom: 20px; }
 .hero .lede { margin-bottom: 30px; font-size: 1.2rem; }
-.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 34px; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 0; }
+/* Achievements list sits under the photo (not under the buttons) on every
+   screen size, so it fills the space below the taller photo column instead
+   of stacking underneath the shorter text column. */
 .trust-strip {
   display: flex;
   flex-wrap: wrap;
-  gap: 22px;
+  justify-content: center;
+  text-align: center;
+  gap: 18px;
   font-size: 0.86rem;
   color: var(--muted);
+  margin-top: 22px;
+  max-width: 380px;
 }
-.trust-strip-mobile { display: none; }
 .trust-strip span { display: flex; align-items: center; gap: 7px; font-weight: 500; }
 .trust-strip span::before {
   content: "";
@@ -264,26 +270,17 @@ nav.main-nav a:hover, nav.main-nav a.active { color: var(--lilac-deep); }
   flex-shrink: 0;
 }
 
-/* Mobile hero: tighter spacing throughout, achievements list shown below the
-   photo (a dedicated .trust-strip-mobile duplicate) instead of above it. */
 @media (max-width: 900px) {
   .hero { padding: 44px 0 56px; }
   .hero .lede { margin-bottom: 22px; }
-  .hero-actions { margin-bottom: 24px; }
   .hero-grid { gap: 22px; }
-  .hero-text .trust-strip:not(.trust-strip-mobile) { display: none; }
-  .trust-strip-mobile {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin-top: 2px;
-  }
 }
 
 .hero-photo-wrap {
   position: relative;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 .hero-blob {
   position: absolute;
