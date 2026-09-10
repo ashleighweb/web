@@ -676,6 +676,7 @@ footer ul a:hover { color: #fff; }
 .community-split h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); }
 .community-split .lede { color: #D7C7E6; }
 .community-photo-wrap { text-align: center; }
+.community-photo-wrap a { display: block; }
 .community-photo-wrap img {
   width: 100%;
   height: auto;
