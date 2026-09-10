@@ -658,6 +658,36 @@ footer ul a:hover { color: #fff; }
 .page-hero { padding: 56px 0 40px; text-align: center; }
 .page-hero .lede { margin: 0 auto; }
 
+/* Fees hero: a quote in place of a heading, styled smaller/italic since it runs long */
+.quote-heading {
+  font-style: italic;
+  font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+  font-weight: 500;
+  max-width: 760px;
+  margin: 0 auto;
+  line-height: 1.35;
+}
+.quote-heading::before { content: "\201C"; }
+.quote-heading::after { content: "\201D"; }
+
+/* Practice exterior photo, framed to sit inside the site's card language */
+.practice-photo {
+  max-width: 620px;
+  margin: 36px auto 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 6px solid #fff;
+}
+.practice-photo img { width: 100%; height: auto; display: block; }
+.practice-photo-caption {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+
 /* Useful links */
 .link-pill-row { display: flex; flex-wrap: wrap; gap: 10px; }
 .link-pill {
