@@ -672,7 +672,7 @@ footer ul a:hover { color: #fff; }
 
 /* Rooted in the Community: small practice photo in a soft backing, text alongside */
 .community-band { overflow: hidden; }
-.community-split { display: grid; grid-template-columns: 1fr 400px; gap: 48px; align-items: center; }
+.community-split { display: grid; grid-template-columns: 1fr 440px; gap: 44px; align-items: center; }
 .community-split h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); }
 .community-split .lede { color: #D7C7E6; }
 .community-photo-wrap { text-align: center; }
@@ -680,7 +680,7 @@ footer ul a:hover { color: #fff; }
   width: 100%;
   height: auto;
   display: block;
-  max-width: 400px;
+  max-width: 440px;
   margin: 0 auto;
 }
 @media (max-width: 760px) {
