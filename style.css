@@ -690,14 +690,18 @@ footer ul a:hover { color: #fff; }
   .community-photo-wrap { order: 1; max-width: 320px; margin: 0 auto; }
 }
 
-/* Full-bleed map banner variant (About 1 only): map fills the top of the dark section, text centred below */
-.map-hero { padding-top: 0; }
-.map-hero .community-hero { line-height: 0; }
-.map-hero .community-hero img { width: 100%; display: block; }
-.map-hero .community-text { text-align: center; margin-top: 48px; }
-.map-hero .community-text .lede { margin-left: auto; margin-right: auto; max-width: 720px; }
-@media (max-width: 720px) {
-  .map-hero .community-text { margin-top: 32px; }
+/* Map graphic side-by-side variant (About 1 only): text left, large feathered-edge map right */
+.map-variant { grid-template-columns: 1fr 620px; }
+.map-variant .community-photo-wrap { max-width: 620px; margin: 0 auto; }
+.map-variant .community-photo-wrap img { max-width: 620px; }
+@media (max-width: 1080px) {
+  .map-variant { grid-template-columns: 1fr; gap: 28px; }
+  .map-variant > div:first-child { order: 1; text-align: center; }
+  .map-variant .lede { margin-left: auto; margin-right: auto; }
+  .map-variant .community-photo-wrap { order: 2; max-width: 560px; }
+}
+@media (max-width: 560px) {
+  .map-variant .community-photo-wrap { max-width: 100%; }
 }
 
 
