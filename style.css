@@ -244,12 +244,6 @@ nav.main-nav a:hover, nav.main-nav a.active { color: var(--lilac-deep); }
 }
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
-  /* Unwrap hero-text on mobile so its children become direct grid items,
-     letting us reorder the photo ABOVE the achievements list (trust-strip). */
-  .hero-text { display: contents; }
-  .hero-text > *:not(.trust-strip) { order: 1; }
-  .hero-photo-wrap { order: 2; margin-top: 8px; }
-  .trust-strip { order: 3; justify-content: center; text-align: center; margin-top: 4px; }
 }
 .hero h1 { margin-bottom: 20px; }
 .hero .lede { margin-bottom: 30px; font-size: 1.2rem; }
@@ -261,12 +255,29 @@ nav.main-nav a:hover, nav.main-nav a.active { color: var(--lilac-deep); }
   font-size: 0.86rem;
   color: var(--muted);
 }
+.trust-strip-mobile { display: none; }
 .trust-strip span { display: flex; align-items: center; gap: 7px; font-weight: 500; }
 .trust-strip span::before {
   content: "";
   width: 6px; height: 6px; border-radius: 50%;
   background: var(--terracotta);
   flex-shrink: 0;
+}
+
+/* Mobile hero: tighter spacing throughout, achievements list shown below the
+   photo (a dedicated .trust-strip-mobile duplicate) instead of above it. */
+@media (max-width: 900px) {
+  .hero { padding: 44px 0 56px; }
+  .hero .lede { margin-bottom: 22px; }
+  .hero-actions { margin-bottom: 24px; }
+  .hero-grid { gap: 22px; }
+  .hero-text .trust-strip:not(.trust-strip-mobile) { display: none; }
+  .trust-strip-mobile {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 2px;
+  }
 }
 
 .hero-photo-wrap {
