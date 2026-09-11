@@ -66,6 +66,8 @@
     <div>
       <form id="contact-form" action="https://formspree.io/f/xbgjqlrj" method="POST">
         <input type="hidden" name="_subject" value="New enquiry from Ashleigh Duncan Counselling website">
+        <!-- honeypot: real people never see or fill this field; bots do, and the submission is discarded -->
+        <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="form-grid">
           <div class="form-field">
             <label for="first_name">First name</label>
@@ -93,6 +95,7 @@
           </div>
         </div>
         <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+        <p class="form-note form-note-center" id="form-block-note" style="display:none;">Please take a moment to check your details, then press send again.</p>
         <p class="form-note form-note-center">Your enquiry goes to the practice. Ashleigh or Andrea, whoever has the first availability, will be in touch.</p>
         <p class="form-note form-note-center">By submitting, you agree to be contacted about your enquiry. All contact is treated in confidence.</p>
       </form>

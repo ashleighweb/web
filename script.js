@@ -17,8 +17,30 @@ document.addEventListener("DOMContentLoaded", function () {
   var form = document.getElementById("contact-form");
   if (form) {
     var successBox = document.getElementById("form-success");
+    var blockNote = document.getElementById("form-block-note");
+    var formOpenedAt = Date.now();
     form.addEventListener("submit", function (e) {
       e.preventDefault();
+
+      // Spam guard 1: honeypot. If the hidden _gotcha field was filled, it is a bot.
+      // Pretend it succeeded so the bot moves on, but send nothing.
+      var gotcha = form.querySelector('[name="_gotcha"]');
+      if (gotcha && gotcha.value) {
+        form.style.display = "none";
+        if (successBox) successBox.classList.add("show");
+        return;
+      }
+
+      // Spam guard 2: time trap. Bots submit within seconds of page load.
+      var elapsed = Date.now() - formOpenedAt;
+      if (elapsed < 6000) {
+        if (blockNote) {
+          blockNote.style.display = "block";
+          setTimeout(function () { blockNote.style.display = "none"; }, 6000);
+        }
+        return;
+      }
+
       var submitBtn = form.querySelector("button[type=submit]");
       var originalText = submitBtn ? submitBtn.textContent : "";
       if (submitBtn) { submitBtn.textContent = "Sending…"; submitBtn.disabled = true; }

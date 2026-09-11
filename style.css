@@ -590,6 +590,7 @@ input, select, textarea {
 input:focus, select:focus, textarea:focus { outline: none; border-color: var(--lilac); }
 textarea { resize: vertical; min-height: 120px; }
 .form-note { font-size: 0.82rem; color: var(--muted); margin-top: 6px; }
+.hp-field { position: absolute; left: -9999px; top: -9999px; width: 1px; height: 1px; opacity: 0; }
 .form-note-center { text-align: center; }
 .form-success {
   display: none;
