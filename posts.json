@@ -1,5 +1,19 @@
 [
   {
+    "id": "post-1789118910626-xf0s",
+    "type": "article",
+    "status": "published",
+    "featured": false,
+    "title": "Ashleigh's Beach",
+    "excerpt": "A poetic piece penned by an incredibly talented client, a beautiful portrayal of their process. Shared with full permission.",
+    "body": "A poetic piece penned by an incredibly talented client, a beautiful portrayal of their process. Shared with full permission.\n\n![Ashleigh's Beach, a poem by a client of the practice](/images/ashleighs-beach-poem.jpg)",
+    "category": [
+      "community"
+    ],
+    "date": "2026-09-11",
+    "readTime": "2 min read"
+  },
+  {
     "id": "post-1789116445385-lnyb",
     "type": "article",
     "status": "published",
