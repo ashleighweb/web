@@ -99,6 +99,14 @@
 .reader-body figure img { max-width: 100%; max-height: 620px; width: auto; border-radius: 14px; display: inline-block; }
 .reader-body a { color: var(--lilac-deep); font-weight: 600; text-decoration: none; }
 .reader-body a:hover { color: var(--terracotta); }
+.share-row { display: flex; align-items: center; gap: 10px; margin: 26px 0 6px; flex-wrap: wrap; }
+.share-row .share-label { font-size: .82rem; font-weight: 600; letter-spacing: .04em; color: var(--plum); opacity: .75; margin-right: 2px; }
+.share-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid var(--lilac-deep); background: transparent; color: var(--lilac-deep); cursor: pointer; transition: all .2s; }
+.share-btn:hover { background: var(--lilac-deep); color: #fff; transform: translateY(-2px); }
+.share-btn svg { width: 17px; height: 17px; fill: currentColor; }
+.share-btn.copied { border-color: var(--terracotta); color: var(--terracotta); background: rgba(198, 107, 63, .08); }
+.share-copied-note { font-size: .8rem; color: var(--terracotta); font-weight: 600; display: none; margin-left: 4px; }
+.share-copied-note.show { display: inline; }
 .reader-cta { margin-top: 34px; padding: 24px; background: var(--lilac-50); border-radius: var(--radius-sm); font-size: 0.97rem; }
 .reader-cta a { margin-top: 14px; }
 @media (max-width: 620px) { .reader-inner { padding: 44px 24px 34px; } }
@@ -466,6 +474,38 @@ document.querySelectorAll('#artFilters .filter-chip').forEach(function(chip) {
 });
 
 // ═══════════════ READER MODAL ═══════════════
+// ═══════════════ SHARE ROW ═══════════════
+function shareRowHtml(shareUrl) {
+  const u = encodeURIComponent(shareUrl);
+  return '<div class="share-row">' +
+    '<span class="share-label">Share this article</span>' +
+    '<a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=' + u + '" target="_blank" rel="noopener" aria-label="Share on Facebook"><svg viewBox="0 0 24 24"><path d="M13.5 21v-7h2.4l.4-3h-2.8V9.1c0-.9.3-1.5 1.6-1.5H16.6V5c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V11H8v3h2.4v7h3.1z"/></svg></a>' +
+    '<a class="share-btn" href="https://twitter.com/intent/tweet?url=' + u + '" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24"><path d="M17.7 3H21l-7.3 8.3L22 21h-6.7l-5.2-6.3L4 21H1l7.8-8.9L2 3h6.9l4.7 5.7L17.7 3zm-1.2 16h1.9L7 4.8H5L16.5 19z"/></svg></a>' +
+    '<a class="share-btn" href="https://wa.me/?text=' + u + '" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.2 1.2-1.7 1.2-.4.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.8-4.4-3.9-.1-.1-1.1-1.4-1.1-2.7 0-1.3.7-1.9.9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.5.7 1.8.8 1.9.1.1.1.3 0 .5-.1.2-.1.3-.3.5l-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1.1 2.2 1.4 2.5 1.5.3.2.5.1.7-.1.2-.2.8-1 1-1.3.2-.3.4-.3.7-.2.3.1 1.8.9 2.1 1 .3.2.5.2.5.4.1.1.1.7-.2 1.3z"/></svg></a>' +
+    '<button type="button" class="share-btn" data-copy="' + esc(shareUrl) + '" onclick="copyShareLink(this)" aria-label="Copy link"><svg viewBox="0 0 24 24"><path d="M10.6 13.4a1 1 0 0 1 0-1.4l2.8-2.8a2 2 0 1 1 2.8 2.8l-1.3 1.3a1 1 0 1 1-1.4-1.4l1.3-1.3a.5.5 0 0 0-.4-.8.5.5 0 0 0-.4.2l-2.8 2.8a1 1 0 0 1-1.4 0zM3 17.4V11a3 3 0 0 1 3-3h4.6a1 1 0 1 1 0 2H6a1 1 0 0 0-1 1v6.4a1 1 0 0 0 1 1h6.4a1 1 0 0 0 1-1v-1.9a1 1 0 1 1 2 0V17.4a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3z"/></svg></button>' +
+    '<span class="share-copied-note">Link copied</span>' +
+  '</div>';
+}
+function copyShareLink(btn) {
+  const url = btn.getAttribute('data-copy');
+  const done = function() {
+    btn.classList.add('copied');
+    const note = btn.parentElement.querySelector('.share-copied-note');
+    if (note) { note.classList.add('show'); setTimeout(function(){ note.classList.remove('show'); btn.classList.remove('copied'); }, 2200); }
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(done).catch(function(){ legacyCopy(url, done); });
+  } else { legacyCopy(url, done); }
+}
+function legacyCopy(url, done) {
+  const ta = document.createElement('textarea');
+  ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); done(); } catch(e) {}
+  document.body.removeChild(ta);
+}
+
+// ═══════════════ READER MODAL ═══════════════
 function openReader(id) {
   const p = getAllPosts().find(function(x){ return x.id === id; });
   if (!p) return;
@@ -475,6 +515,7 @@ function openReader(id) {
     '<h2>' + esc(p.title) + '</h2>' +
     '<div class="reader-meta">' + formatDate(p.date) + (p.readTime ? ' \u00B7 ' + esc(p.readTime) : '') + '</div>' +
     '<div class="reader-body">' + body + '</div>' +
+    shareRowHtml(BASE_URL + '/articles/' + slugify(p.title) + '.html') +
     '<div class="reader-cta"><strong>If something here resonates</strong> and you would like to talk it through, you are welcome to get in touch.<br><a href="/contact.html" class="btn btn-primary" style="display:inline-flex;margin-top:14px;">Get in Touch</a></div>';
   document.getElementById('readerOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -677,6 +718,14 @@ function buildArticleHtml(post) {
   h += '.article-body figure img { max-width: 100%; max-height: 680px; width: auto; border-radius: 14px; display: inline-block; }\n';
   h += '.article-body a { color: var(--lilac-deep); font-weight: 600; text-decoration: none; }\n';
   h += '.article-body a:hover { color: var(--terracotta); }\n';
+  h += '.share-row { display: flex; align-items: center; gap: 10px; margin: 26px 0 6px; flex-wrap: wrap; }\n';
+  h += '.share-row .share-label { font-size: .82rem; font-weight: 600; letter-spacing: .04em; color: var(--plum); opacity: .75; margin-right: 2px; }\n';
+  h += '.share-btn { display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid var(--lilac-deep); background: transparent; color: var(--lilac-deep); cursor: pointer; transition: all .2s; }\n';
+  h += '.share-btn:hover { background: var(--lilac-deep); color: #fff; transform: translateY(-2px); }\n';
+  h += '.share-btn svg { width: 17px; height: 17px; fill: currentColor; }\n';
+  h += '.share-btn.copied { border-color: var(--terracotta); color: var(--terracotta); background: rgba(198, 107, 63, .08); }\n';
+  h += '.share-copied-note { font-size: .8rem; color: var(--terracotta); font-weight: 600; display: none; margin-left: 4px; }\n';
+  h += '.share-copied-note.show { display: inline; }\n';
   h += '.article-cta { margin-top: 44px; padding: 28px; background: var(--lilac-50); border-radius: var(--radius-sm); }\n';
   h += '.article-cta a { margin-top: 14px; }\n';
   h += '.back-link { display: inline-flex; margin-top: 40px; color: var(--lilac-deep); font-weight: 600; text-decoration: none; }\n';
@@ -688,10 +737,11 @@ function buildArticleHtml(post) {
   h += '  <h1>' + cleanTitle + '</h1>\n';
   h += '  <div class="article-meta">' + postDate + (post.readTime ? ' \u00B7 ' + post.readTime : '') + ' \u00B7 By Ashleigh Duncan, Counsellor MBACP</div>\n';
   h += '  <div class="article-body">\n' + bodyHtml + '\n  </div>\n';
+  h += '  ' + shareRowHtml(BASE_URL + '/articles/' + slug + '.html') + '\n';
   h += '  <div class="article-cta">\n    <p><strong>If something here resonates</strong> and you would like to talk it through with someone, you are very welcome to get in touch.</p>\n    <a href="/contact.html" class="btn btn-primary" style="display:inline-flex;">Get in Touch</a>\n  </div>\n';
   h += '  <a class="back-link" href="/articles.html">&larr; Back to all articles</a>\n';
   h += '</div>\n</main>\n\n';
-  h += '<footer class="site-footer">\n  <div class="container">\n    <div class="footer-grid">\n      <div>\n        <div class="foot-brand">\n          <img src="/images/logo-lotus.png" alt="" width="40" height="20">\n          <span>Ashleigh Duncan</span>\n        </div>\n        <p>Bespoke therapy in Newtownabbey: counselling, somatic experiencing and wellness coaching, offering a soft place to land when things are hard.</p>\n        <div class="bacp-badge-card">\n          <img src="/images/bacp-badge.png" alt="BACP Registered Member 246921, MBACP, British Association for Counselling and Psychotherapy" width="220" height="99" loading="lazy">\n        </div>\n      </div>\n      <div>\n        <h4>Explore</h4>\n        <ul>\n          <li><a href="/about.html">About</a></li>\n          <li><a href="/services.html">Services</a></li>\n          <li><a href="/articles.html">Articles</a></li>\n          <li><a href="/book.html">My Book</a></li>\n          <li><a href="/fees.html">Fees</a></li>\n        </ul>\n      </div>\n      <div>\n        <h4>Services</h4>\n        <ul>\n          <li><a href="/services.html#counselling">Counselling</a></li>\n          <li><a href="/services.html#somatic">Somatic Experiencing</a></li>\n          <li><a href="/services.html#wellness">Wellness Coaching</a></li>\n          <li><a href="/services.html#reiki">Reiki &amp; Energy Work</a></li>\n        </ul>\n      </div>\n      <div>\n        <h4>Contact</h4>\n        <ul>\n          <li>161 Antrim Road, Glengormley</li>\n          <li>Newtownabbey, BT36 7QR</li>\n          <li><a href="tel:02890839110">028 9083 9110</a></li>\n          <li><a href="mailto:ashlee_d@hotmail.com">Email me</a></li>\n        </ul>\n      </div>\n    </div>\n    <div class="foot-bottom">\n      <span>&copy; 2026 Ashleigh Duncan Counselling &amp; Somatic Wellness. All rights reserved.</span>\n    </div>\n  </div>\n</footer>\n<script src="/script.js"><\/scr' + 'ipt>\n</body>\n</html>';
+  h += '<footer class="site-footer">\n  <div class="container">\n    <div class="footer-grid">\n      <div>\n        <div class="foot-brand">\n          <img src="/images/logo-lotus.png" alt="" width="40" height="20">\n          <span>Ashleigh Duncan</span>\n        </div>\n        <p>Bespoke therapy in Newtownabbey: counselling, somatic experiencing and wellness coaching, offering a soft place to land when things are hard.</p>\n        <div class="bacp-badge-card">\n          <img src="/images/bacp-badge.png" alt="BACP Registered Member 246921, MBACP, British Association for Counselling and Psychotherapy" width="220" height="99" loading="lazy">\n        </div>\n      </div>\n      <div>\n        <h4>Explore</h4>\n        <ul>\n          <li><a href="/about.html">About</a></li>\n          <li><a href="/services.html">Services</a></li>\n          <li><a href="/articles.html">Articles</a></li>\n          <li><a href="/book.html">My Book</a></li>\n          <li><a href="/fees.html">Fees</a></li>\n        </ul>\n      </div>\n      <div>\n        <h4>Services</h4>\n        <ul>\n          <li><a href="/services.html#counselling">Counselling</a></li>\n          <li><a href="/services.html#somatic">Somatic Experiencing</a></li>\n          <li><a href="/services.html#wellness">Wellness Coaching</a></li>\n          <li><a href="/services.html#reiki">Reiki &amp; Energy Work</a></li>\n        </ul>\n      </div>\n      <div>\n        <h4>Contact</h4>\n        <ul>\n          <li>161 Antrim Road, Glengormley</li>\n          <li>Newtownabbey, BT36 7QR</li>\n          <li><a href="tel:02890839110">028 9083 9110</a></li>\n          <li><a href="mailto:ashlee_d@hotmail.com">Email me</a></li>\n        </ul>\n      </div>\n    </div>\n    <div class="foot-bottom">\n      <span>&copy; 2026 Ashleigh Duncan Counselling &amp; Somatic Wellness. All rights reserved.</span>\n    </div>\n  </div>\n</footer>\n<script src="/script.js"><\/scr' + 'ipt>\n<script>\nfunction copyShareLink(btn){var url=btn.getAttribute("data-copy");var done=function(){btn.classList.add("copied");var n=btn.parentElement.querySelector(".share-copied-note");if(n){n.classList.add("show");setTimeout(function(){n.classList.remove("show");btn.classList.remove("copied");},2200);}};if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(url).then(done).catch(function(){legacyCopy(url,done);});}else{legacyCopy(url,done);}}\nfunction legacyCopy(url,done){var t=document.createElement("textarea");t.value=url;t.style.position="fixed";t.style.opacity="0";document.body.appendChild(t);t.select();try{document.execCommand("copy");done();}catch(e){}document.body.removeChild(t);}\n<\/scr' + 'ipt>\n</body>\n</html>';
   return h;
 }
 
