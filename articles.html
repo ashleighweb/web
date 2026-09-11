@@ -95,6 +95,10 @@
 .reader-body li { margin-bottom: 7px; }
 .reader-body blockquote { border-left: 3px solid var(--terracotta); margin: 20px 0; padding: 6px 0 6px 20px; font-family: var(--serif); font-size: 1.15rem; font-style: italic; color: var(--plum); }
 .reader-body strong { color: var(--plum); }
+.reader-body figure { margin: 26px 0; text-align: center; }
+.reader-body figure img { max-width: 100%; max-height: 620px; width: auto; border-radius: 14px; display: inline-block; }
+.reader-body a { color: var(--lilac-deep); font-weight: 600; text-decoration: none; }
+.reader-body a:hover { color: var(--terracotta); }
 .reader-cta { margin-top: 34px; padding: 24px; background: var(--lilac-50); border-radius: var(--radius-sm); font-size: 0.97rem; }
 .reader-cta a { margin-top: 14px; }
 @media (max-width: 620px) { .reader-inner { padding: 44px 24px 34px; } }
@@ -486,7 +490,8 @@ function md(t) {
   return t
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
     .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.+?)\*/g, '<em>$1</em>');
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
 }
 function renderBodyToHtml(body) {
   const lines = body.split(/\n/);
@@ -494,6 +499,8 @@ function renderBodyToHtml(body) {
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
     if (line.trim() === '') { if (inList) { html += '</ul>'; inList = false; } if (inQuote) { html += '</blockquote>'; inQuote = false; } continue; }
+    const imgM = line.trim().match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+    if (imgM) { html += '<figure><img src="' + esc(imgM[2]) + '" alt="' + esc(imgM[1]) + '" loading="lazy"></figure>'; continue; }
     if (/^###\s/.test(line)) { html += '<h4>' + md(line.replace(/^###\s/, '')) + '</h4>'; continue; }
     if (/^##\s/.test(line))  { html += '<h3>' + md(line.replace(/^##\s/, '')) + '</h3>'; continue; }
     if (/^#\s/.test(line))    { html += '<h3>' + md(line.replace(/^#\s/, '')) + '</h3>'; continue; }
@@ -666,6 +673,10 @@ function buildArticleHtml(post) {
   h += '.article-body li { margin-bottom: 7px; }\n';
   h += '.article-body blockquote { border-left: 3px solid var(--terracotta); margin: 20px 0; padding: 6px 0 6px 20px; font-family: var(--serif); font-size: 1.15rem; font-style: italic; color: var(--plum); }\n';
   h += '.article-body strong { color: var(--plum); }\n';
+  h += '.article-body figure { margin: 26px 0; text-align: center; }\n';
+  h += '.article-body figure img { max-width: 100%; max-height: 680px; width: auto; border-radius: 14px; display: inline-block; }\n';
+  h += '.article-body a { color: var(--lilac-deep); font-weight: 600; text-decoration: none; }\n';
+  h += '.article-body a:hover { color: var(--terracotta); }\n';
   h += '.article-cta { margin-top: 44px; padding: 28px; background: var(--lilac-50); border-radius: var(--radius-sm); }\n';
   h += '.article-cta a { margin-top: 14px; }\n';
   h += '.back-link { display: inline-flex; margin-top: 40px; color: var(--lilac-deep); font-weight: 600; text-decoration: none; }\n';
