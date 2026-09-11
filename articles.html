@@ -126,7 +126,7 @@
 .login-error { display: none; color: var(--terracotta-deep); font-size: .85rem; margin-top: 10px; }
 .login-cancel { display: inline-block; margin-top: 16px; color: var(--muted); font-size: .85rem; text-decoration: none; }
 .login-cancel:hover { color: var(--plum); }
-.admin-panel { max-width: 860px; max-height: 92vh; display: none; flex-direction: column; overflow: hidden; }
+.admin-panel { max-width: 960px; max-height: 92vh; display: none; flex-direction: column; overflow: hidden; }
 .admin-panel.visible { display: flex; }
 .admin-close { position: absolute; top: 14px; right: 16px; background: none; border: none; font-size: 1.4rem; color: var(--muted); cursor: pointer; }
 .admin-header { padding: 30px 34px 18px; border-bottom: 1px solid var(--border); position: relative; }
@@ -142,9 +142,63 @@
   font-family: var(--sans); font-size: .95rem; color: var(--ink); background: #fff;
 }
 .admin-body textarea { resize: vertical; }
+#f-body { min-height: 420px; line-height: 1.75; }
+#l-teaser, #f-excerpt { min-height: 70px; }
+.form-hint { display: block; font-size: .78rem; color: var(--muted); margin-top: 8px; }
 .admin-body input:focus, .admin-body select:focus, .admin-body textarea:focus { outline: 2px solid var(--lilac); border-color: var(--lilac); }
-.cat-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
-.cat-row label { display: inline-flex; align-items: center; gap: 6px; margin: 0; text-transform: none; font-weight: 500; font-size: .9rem; color: var(--ink); }
+.cat-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+.cat-chip {
+  display: inline-flex; align-items: center; gap: 7px; margin: 0; text-transform: none;
+  font-family: var(--sans); font-weight: 500; font-size: .87rem; color: var(--ink);
+  background: var(--card); border: 1.5px solid var(--border); border-radius: 999px;
+  padding: 8px 16px 8px 12px; cursor: pointer; transition: all .15s; user-select: none;
+}
+.cat-chip .chip-dot { width: 15px; height: 15px; border-radius: 50%; border: 1.5px solid var(--border); flex-shrink: 0; transition: all .15s; position: relative; }
+.cat-chip .chip-dot::after {
+  content: ''; position: absolute; top: 50%; left: 50%; width: 7px; height: 7px; border-radius: 50%;
+  background: #fff; transform: translate(-50%, -50%) scale(0); transition: transform .15s;
+}
+.cat-chip:hover { border-color: var(--lilac); color: var(--plum); }
+.cat-chip.active { background: var(--lilac-50); border-color: var(--lilac-deep); color: var(--plum); font-weight: 600; }
+.cat-chip.active .chip-dot { background: var(--lilac-deep); border-color: var(--lilac-deep); }
+.cat-chip.active .chip-dot::after { transform: translate(-50%, -50%) scale(1); }
+/* Edit / Preview toggle */
+.editor-mode-toggle { display: flex; gap: 0; margin: 8px 0 0; border-bottom: 1.5px solid var(--border); }
+.mode-btn {
+  font-family: var(--sans); font-size: .82rem; font-weight: 600; letter-spacing: .02em;
+  padding: 9px 16px 10px; border: none; background: none; color: var(--muted); cursor: pointer;
+  border-bottom: 2px solid transparent; margin-bottom: -1.5px; transition: all .15s;
+}
+.mode-btn.active { color: var(--plum); border-bottom-color: var(--terracotta); }
+/* Formatting toolbar */
+.editor-toolbar { display: flex; gap: 6px; flex-wrap: wrap; margin: 12px 0 8px; }
+.toolbar-btn {
+  font-family: var(--sans); font-size: .8rem; font-weight: 700; line-height: 1;
+  padding: 7px 12px; border: 1.5px solid var(--border); background: var(--card);
+  color: var(--plum); border-radius: 7px; cursor: pointer; transition: all .15s;
+}
+.toolbar-btn:hover { border-color: var(--terracotta); color: var(--terracotta-deep); }
+.toolbar-italic { font-style: italic; }
+.toolbar-link { color: var(--lilac-deep); border-color: var(--lilac); font-weight: 600; }
+.toolbar-link:hover { background: var(--lilac-deep); color: #fff; border-color: var(--lilac-deep); }
+/* Live preview */
+.preview-wrap { display: none; border: 1.5px solid var(--border); border-radius: var(--radius-sm); padding: 26px 28px; min-height: 340px; background: #fff; }
+.preview-wrap.visible { display: block; }
+.preview-eyebrow { font-family: var(--sans); font-size: .74rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 8px; }
+.preview-title { font-family: var(--serif); font-size: 1.7rem; color: var(--plum); line-height: 1.25; margin-bottom: 8px; }
+.preview-meta { font-size: .82rem; color: var(--muted); margin-bottom: 20px; }
+.preview-hint { display: block; font-size: .78rem; color: var(--muted); margin-top: 10px; }
+#preview-content { color: var(--ink); font-size: 1rem; line-height: 1.75; }
+#preview-content h3 { font-family: var(--serif); color: var(--plum); font-size: 1.25rem; margin: 26px 0 10px; }
+#preview-content h4 { font-family: var(--serif); color: var(--plum); font-size: 1.08rem; margin: 20px 0 8px; }
+#preview-content p { margin: 0 0 14px; }
+#preview-content ul { margin: 0 0 14px; padding-left: 20px; }
+#preview-content li { margin-bottom: 6px; }
+#preview-content blockquote { border-left: 3px solid var(--terracotta); margin: 16px 0; padding: 4px 0 4px 16px; font-family: var(--serif); font-style: italic; color: var(--plum); }
+#preview-content strong { color: var(--plum); }
+#preview-content figure { margin: 20px 0; text-align: center; }
+#preview-content figure img { max-width: 100%; border-radius: 10px; }
+#preview-content a { color: var(--lilac-deep); font-weight: 600; }
 .admin-publish-row { display: flex; gap: 12px; align-items: center; margin-top: 26px; flex-wrap: wrap; }
 .admin-publish-row .btn { cursor: pointer; }
 .admin-status { font-size: .88rem; color: var(--muted); }
@@ -321,15 +375,39 @@
         <input id="f-title" type="text" placeholder="A gentle title for your article" maxlength="120">
         <label>Categories</label>
         <div class="cat-row" id="f-cat">
-          <label><input type="checkbox" value="wellbeing"> Wellbeing</label>
-          <label><input type="checkbox" value="somatic"> Somatic</label>
-          <label><input type="checkbox" value="mental-health"> Mental Health</label>
-          <label><input type="checkbox" value="community"> Community</label>
+          <button type="button" class="cat-chip" data-value="wellbeing"><span class="chip-dot"></span>Wellbeing</button>
+          <button type="button" class="cat-chip" data-value="somatic"><span class="chip-dot"></span>Somatic</button>
+          <button type="button" class="cat-chip" data-value="mental-health"><span class="chip-dot"></span>Mental Health</button>
+          <button type="button" class="cat-chip" data-value="community"><span class="chip-dot"></span>Community</button>
         </div>
         <label for="f-excerpt">Short excerpt (shows on the card and in search results)</label>
         <textarea id="f-excerpt" rows="2" maxlength="220" placeholder="One or two sentences to draw the reader in"></textarea>
-        <label for="f-body">Your article (blank line between paragraphs, ## for section headings, - for lists, &gt; for quotes, **bold** works)</label>
-        <textarea id="f-body" rows="12" placeholder="Write your article here"></textarea>
+        <label>Your article</label>
+        <div class="editor-mode-toggle">
+          <button type="button" class="mode-btn active" id="mode-edit" onclick="switchEditorMode('edit')">&#9997;&#65039; Edit</button>
+          <button type="button" class="mode-btn" id="mode-preview" onclick="switchEditorMode('preview')">&#128065; Preview</button>
+        </div>
+        <div id="edit-wrap">
+          <div class="editor-toolbar">
+            <button type="button" class="toolbar-btn" onclick="insertFormatting('**','**')" title="Bold">B</button>
+            <button type="button" class="toolbar-btn toolbar-italic" onclick="insertFormatting('*','*')" title="Italic">I</button>
+            <button type="button" class="toolbar-btn" onclick="insertHeading('## ')" title="Heading">H2</button>
+            <button type="button" class="toolbar-btn" onclick="insertHeading('### ')" title="Sub-heading">H3</button>
+            <button type="button" class="toolbar-btn" onclick="insertFormatting('- ','')" title="Bullet">&#8226;</button>
+            <button type="button" class="toolbar-btn toolbar-link" onclick="insertLink()" title="Insert link">&#128279; Link</button>
+          </div>
+          <textarea id="f-body" placeholder="Write your article here. You can use basic formatting:&#10;&#10;## Section heading&#10;### Sub heading&#10;**bold text**&#10;- bullet point&#10;&gt; a quote&#10;[link text](https://url.com)&#10;&#10;Each blank line starts a new paragraph."></textarea>
+          <span class="form-hint">Use ## headings, **bold**, - bullets, &gt; for quotes, [text](url) for links. Each blank line = new paragraph.</span>
+        </div>
+        <div class="preview-wrap" id="preview-wrap">
+          <div id="preview-body">
+            <div class="preview-eyebrow" id="preview-eyebrow"></div>
+            <div class="preview-title" id="preview-title"></div>
+            <div class="preview-meta" id="preview-meta"></div>
+            <div id="preview-content"></div>
+          </div>
+          <span class="preview-hint">This is how your article will look when published. Switch back to Edit to keep writing.</span>
+        </div>
         <div class="admin-publish-row">
           <button class="btn btn-primary" onclick="publishArticle()">Publish</button>
           <span class="admin-status" id="writeStatus"></span>
@@ -588,6 +666,13 @@ function closeAdmin() {
   document.getElementById('adminOverlay').classList.remove('open');
 }
 document.getElementById('adminClose').addEventListener('click', closeAdmin);
+document.querySelectorAll('#f-cat .cat-chip').forEach(function(chip) {
+  chip.addEventListener('click', function() {
+    chip.classList.toggle('active');
+    if (document.getElementById('mode-preview') && document.getElementById('mode-preview').classList.contains('active')) updatePreview();
+  });
+});
+
 document.querySelectorAll('.admin-tab').forEach(function(tab) {
   tab.addEventListener('click', function() {
     document.querySelectorAll('.admin-tab').forEach(function(t){ t.classList.remove('active'); });
@@ -858,6 +943,71 @@ async function updateSitemapFromPosts(posts) {
   await pushFileToGitHub('sitemap.xml', buildSitemapXml(published), 'Auto-update sitemap (writing dashboard)');
 }
 
+// ═══════════════ WRITE TAB: FORMATTING TOOLBAR + LIVE PREVIEW ═══════════════
+function insertFormatting(before, after) {
+  const ta = document.getElementById('f-body');
+  if (!ta) return;
+  const start = ta.selectionStart, end = ta.selectionEnd;
+  const sel = ta.value.substring(start, end);
+  const replacement = before + (sel || 'text') + after;
+  ta.value = ta.value.substring(0, start) + replacement + ta.value.substring(end);
+  ta.selectionStart = start + before.length;
+  ta.selectionEnd   = start + before.length + (sel || 'text').length;
+  ta.focus();
+}
+function insertHeading(prefix) {
+  const ta = document.getElementById('f-body');
+  if (!ta) return;
+  const start = ta.selectionStart;
+  const lineStart = ta.value.lastIndexOf('\n', start - 1) + 1;
+  ta.value = ta.value.substring(0, lineStart) + prefix + ta.value.substring(lineStart);
+  ta.selectionStart = ta.selectionEnd = lineStart + prefix.length;
+  ta.focus();
+}
+function insertLink() {
+  const ta = document.getElementById('f-body');
+  if (!ta) return;
+  const start = ta.selectionStart, end = ta.selectionEnd;
+  const sel = ta.value.substring(start, end) || 'link text';
+  const url = prompt('Enter the URL:', 'https://');
+  if (!url) return;
+  const replacement = '[' + sel + '](' + url + ')';
+  ta.value = ta.value.substring(0, start) + replacement + ta.value.substring(end);
+  ta.selectionStart = start + 1;
+  ta.selectionEnd   = start + 1 + sel.length;
+  ta.focus();
+}
+function switchEditorMode(mode) {
+  const editBtn = document.getElementById('mode-edit');
+  const previewBtn = document.getElementById('mode-preview');
+  const editWrap = document.getElementById('edit-wrap');
+  const previewWrap = document.getElementById('preview-wrap');
+  if (!editBtn || !previewBtn || !editWrap || !previewWrap) return;
+  if (mode === 'preview') {
+    editBtn.classList.remove('active'); previewBtn.classList.add('active');
+    editWrap.style.display = 'none'; previewWrap.classList.add('visible');
+    updatePreview();
+  } else {
+    editBtn.classList.add('active'); previewBtn.classList.remove('active');
+    editWrap.style.display = ''; previewWrap.classList.remove('visible');
+  }
+}
+function updatePreview() {
+  const title = document.getElementById('f-title').value || 'Your title here';
+  const body = document.getElementById('f-body').value || '';
+  const cats = Array.from(document.querySelectorAll('#f-cat .cat-chip.active')).map(function(c){ return c.dataset.value; });
+  const dateStr = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+  document.getElementById('preview-eyebrow').textContent = cats.length ? catLabel(cats) : 'Article';
+  document.getElementById('preview-title').innerHTML = esc(title);
+  document.getElementById('preview-meta').textContent = dateStr + ' · By Ashleigh Duncan, Counsellor MBACP';
+  document.getElementById('preview-content').innerHTML = renderBodyToHtml(body) || '<p style="color:var(--muted)">Nothing to preview yet, start writing on the Edit tab.</p>';
+}
+document.addEventListener('input', function(e) {
+  if (['f-title', 'f-excerpt', 'f-body'].indexOf(e.target.id) !== -1) {
+    if (document.getElementById('mode-preview') && document.getElementById('mode-preview').classList.contains('active')) updatePreview();
+  }
+});
+
 // ═══════════════ PUBLISH FLOWS ═══════════════
 function uid() { return 'post-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6); }
 
@@ -866,7 +1016,7 @@ async function publishArticle() {
   const title = document.getElementById('f-title').value.trim();
   const body = document.getElementById('f-body').value.trim();
   const excerpt = document.getElementById('f-excerpt').value.trim();
-  const cats = Array.from(document.querySelectorAll('#f-cat input:checked')).map(function(c){ return c.value; });
+  const cats = Array.from(document.querySelectorAll('#f-cat .cat-chip.active')).map(function(c){ return c.dataset.value; });
   const editingId = document.getElementById('f-title').dataset.editingId;
 
   if (!title || !body) { status.className = 'admin-status err'; status.textContent = 'Please add a title and some body text.'; return; }
@@ -924,7 +1074,8 @@ async function publishArticle() {
   document.getElementById('f-title').value = '';
   document.getElementById('f-excerpt').value = '';
   document.getElementById('f-body').value = '';
-  document.querySelectorAll('#f-cat input').forEach(function(c){ c.checked = false; });
+  document.querySelectorAll('#f-cat .cat-chip').forEach(function(c){ c.classList.remove('active'); });
+  switchEditorMode('edit');
   renderPostList();
   renderGrid();
 }
@@ -1010,9 +1161,10 @@ function editPost(id) {
   document.getElementById('f-title').dataset.editingId = post.id;
   document.getElementById('f-excerpt').value = post.excerpt || '';
   document.getElementById('f-body').value = post.body || '';
-  document.querySelectorAll('#f-cat input').forEach(function(cb) {
-    cb.checked = (Array.isArray(post.category) ? post.category : [post.category]).indexOf(cb.value) !== -1;
+  document.querySelectorAll('#f-cat .cat-chip').forEach(function(chip) {
+    chip.classList.toggle('active', (Array.isArray(post.category) ? post.category : [post.category]).indexOf(chip.dataset.value) !== -1);
   });
+  switchEditorMode('edit');
 }
 
 async function toggleStatus(id) {
