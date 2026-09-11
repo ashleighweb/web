@@ -550,7 +550,11 @@ document.querySelectorAll('.admin-tab').forEach(function(tab) {
 });
 
 // Hidden trigger: /articles.html#admin
-if (window.location.hash === '#admin') document.getElementById('adminOverlay').classList.add('open');
+function checkAdminHash() {
+  if (window.location.hash === '#admin') document.getElementById('adminOverlay').classList.add('open');
+}
+checkAdminHash();
+window.addEventListener('hashchange', checkAdminHash);
 
 // ═══════════════ GITHUB API ═══════════════
 async function fetchFileSha() {
