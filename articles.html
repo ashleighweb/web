@@ -47,7 +47,9 @@
 
 <style>
 /* ── Articles page scoped styles ── */
-.art-filters { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 26px 0 40px; }
+.page-hero { padding-bottom: 18px; }
+#articles-grid { padding-top: 8px; }
+.art-filters { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 6px 0 40px; }
 .filter-chip {
   border: 1px solid var(--border); background: var(--card); color: var(--muted);
   font-family: var(--sans); font-size: 0.85rem; font-weight: 600; padding: 8px 18px;
@@ -63,8 +65,7 @@
   aspect-ratio: 1200/630; background: linear-gradient(135deg, var(--lilac-50), var(--sand));
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
 }
-.art-pub-strip img { width: 44px; height: 22px; opacity: .85; }
-.art-pub-strip .pub-name { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; color: var(--lilac-deep); }
+.art-pub-strip .pub-name { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; color: var(--lilac-deep); text-align: center; padding: 0 20px; }
 .art-body { padding: 24px 26px 26px; display: flex; flex-direction: column; flex: 1; }
 .art-cat { font-family: var(--sans); font-size: 0.72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 10px; }
 .art-card h3 { margin: 0 0 10px; font-size: 1.25rem; line-height: 1.35; color: var(--plum); }
@@ -192,7 +193,7 @@
   </div>
 </section>
 
-<section>
+<section id="articles-grid">
   <div class="container">
     <div class="art-filters" id="artFilters">
       <button class="filter-chip active" data-filter="all">All</button>
@@ -431,7 +432,7 @@ function renderGrid() {
     const safeTitle = esc(p.title).replace(/&lt;/g,'&amp;lt;').replace(/&gt;/g,'&amp;gt;');
     if (p.type === 'publication') {
       return '<article class="card art-card" onclick="window.open(this.dataset.url, \'_blank\', \'noopener\')" data-url="' + esc(p.url) + '">' +
-        '<div class="art-pub-strip"><img src="/images/logo-lotus.png" alt=""><span class="pub-name">' + esc(p.publisher) + '</span></div>' +
+        '<div class="art-pub-strip"><span class="pub-name">' + esc(p.publisher) + '</span></div>' +
         '<div class="art-body">' +
         '<div class="art-cat">Published in ' + esc(p.publisher) + '</div>' +
         '<h3>' + safeTitle + '</h3>' +
