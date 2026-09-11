@@ -1,5 +1,19 @@
 [
   {
+    "id": "post-1789120900115-zkgo",
+    "type": "article",
+    "status": "published",
+    "featured": false,
+    "title": "Editor Upgrade Test Post",
+    "excerpt": "Verifying the new toolbar and live preview end to end.",
+    "body": "Intro line.\n\n## A Heading\n\n** emphasised text.**",
+    "category": [
+      "wellbeing"
+    ],
+    "date": "2026-09-11",
+    "readTime": "2 min read"
+  },
+  {
     "id": "post-1789118933231-dfbi",
     "type": "publication",
     "status": "published",
