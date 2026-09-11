@@ -1,0 +1,28 @@
+[
+  {
+    "id": "pub-blue-monday",
+    "type": "publication",
+    "status": "published",
+    "featured": false,
+    "title": "Blue Monday: Suggestions for Managing Difficult Days",
+    "publisher": "Belfast Live",
+    "url": "https://www.belfastlive.co.uk/whats-on/be/blue-monday-suggestions-helping-manage-22698008",
+    "teaser": "We all have difficult days, sometimes a difficult week. I shared some suggestions with Belfast Live on how to manage stress and stay positive through the darker days of winter.",
+    "category": "wellbeing",
+    "date": "2026-01-19",
+    "readTime": "3 min read"
+  },
+  {
+    "id": "pub-eat-the-frog",
+    "type": "publication",
+    "status": "published",
+    "featured": false,
+    "title": "Eat the Frog: Tackling the Hardest Thing First",
+    "publisher": "Counselling Directory",
+    "url": "https://www.counselling-directory.org.uk/articles/eat-the-frog",
+    "teaser": "An article I wrote for the Counselling Directory on procrastination, avoidance and the simple discipline of doing the hardest thing first, and why it lifts the rest of your day.",
+    "category": "mental-health",
+    "date": "2026-03-02",
+    "readTime": "4 min read"
+  }
+]

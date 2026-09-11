@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Articles & Published Writing | Ashleigh Duncan Counselling</title>
+<meta name="description" content="Articles, guides and published writing by Ashleigh Duncan MBACP: self care, somatic wellness and mental health, plus pieces written for Belfast Live, the Counselling Directory and local press.">
+<link rel="canonical" href="https://www.adcounsellingnewtownabbey.co.uk/articles.html">
+
+<meta property="og:title" content="Articles & Published Writing | Ashleigh Duncan Counselling">
+<meta property="og:description" content="Articles, guides and published writing by Ashleigh Duncan MBACP on self care, somatic wellness and mental health, plus pieces published in the local press.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.adcounsellingnewtownabbey.co.uk/articles.html">
+<meta property="og:image" content="https://www.adcounsellingnewtownabbey.co.uk/images/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Articles & Published Writing | Ashleigh Duncan Counselling">
+<meta name="twitter:description" content="Articles, guides and published writing by Ashleigh Duncan MBACP on self care, somatic wellness and mental health.">
+<meta name="twitter:image" content="https://www.adcounsellingnewtownabbey.co.uk/images/og-image.jpg">
+
+<link rel="icon" href="/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap"></noscript>
+
+<link rel="stylesheet" href="/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Articles by Ashleigh Duncan",
+  "url": "https://www.adcounsellingnewtownabbey.co.uk/articles.html",
+  "description": "Articles, guides and published writing by Ashleigh Duncan MBACP on self care, somatic wellness and mental health.",
+  "author": {
+    "@type": "Person",
+    "name": "Ashleigh Duncan",
+    "jobTitle": "Counsellor MBACP",
+    "url": "https://www.adcounsellingnewtownabbey.co.uk"
+  }
+}
+</script>
+  <!-- Umami analytics -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="5aeb19b1-5bf8-4fad-bec9-123066d5ea9c"></script>
+
+<style>
+/* ── Articles page scoped styles ── */
+.art-filters { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 26px 0 40px; }
+.filter-chip {
+  border: 1px solid var(--border); background: var(--card); color: var(--muted);
+  font-family: var(--sans); font-size: 0.85rem; font-weight: 600; padding: 8px 18px;
+  border-radius: 999px; cursor: pointer; transition: all .2s ease;
+}
+.filter-chip:hover { border-color: var(--lilac); color: var(--plum); }
+.filter-chip.active { background: var(--plum); color: #fff; border-color: var(--plum); }
+
+.art-card { display: flex; flex-direction: column; overflow: hidden; cursor: pointer; padding: 0; }
+.art-card .art-img { position: relative; aspect-ratio: 1200/630; background: var(--lilac-50); }
+.art-card .art-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.art-card .art-pub-strip {
+  aspect-ratio: 1200/630; background: linear-gradient(135deg, var(--lilac-50), var(--sand));
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+}
+.art-pub-strip img { width: 44px; height: 22px; opacity: .85; }
+.art-pub-strip .pub-name { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; color: var(--lilac-deep); }
+.art-body { padding: 24px 26px 26px; display: flex; flex-direction: column; flex: 1; }
+.art-cat { font-family: var(--sans); font-size: 0.72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 10px; }
+.art-card h3 { margin: 0 0 10px; font-size: 1.25rem; line-height: 1.35; color: var(--plum); }
+.art-card p.art-teaser { color: var(--muted); font-size: 0.95rem; margin: 0 0 18px; flex: 1; }
+.art-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 0.82rem; color: var(--muted); }
+.art-link { font-family: var(--sans); font-weight: 600; color: var(--lilac-deep); text-decoration: none; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; }
+.art-link:hover { color: var(--terracotta); }
+.art-empty { text-align: center; color: var(--muted); padding: 40px 0; font-size: 1.05rem; }
+@media (max-width: 620px) { .art-card h3 { font-size: 1.15rem; } }
+
+/* ── Reader modal ── */
+.reader-overlay { position: fixed; inset: 0; background: rgba(54,41,69,.55); backdrop-filter: blur(4px); z-index: 900; display: none; align-items: flex-start; justify-content: center; padding: 26px 16px; overflow-y: auto; }
+.reader-overlay.open { display: flex; }
+.reader-card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); max-width: 740px; width: 100%; margin: auto 0; position: relative; animation: readerIn .25s ease; }
+@keyframes readerIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+.reader-close { position: absolute; top: 14px; right: 16px; background: none; border: none; font-size: 1.5rem; color: var(--muted); cursor: pointer; line-height: 1; padding: 6px; }
+.reader-close:hover { color: var(--plum); }
+.reader-inner { padding: 52px 54px 46px; }
+.reader-inner .art-cat { font-size: 0.78rem; }
+.reader-inner h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin: 8px 0 14px; }
+.reader-meta { color: var(--muted); font-size: 0.85rem; margin-bottom: 26px; padding-bottom: 22px; border-bottom: 1px solid var(--border); }
+.reader-body { color: var(--ink); font-size: 1.02rem; line-height: 1.75; }
+.reader-body h3 { font-family: var(--serif); color: var(--plum); font-size: 1.3rem; margin: 34px 0 12px; }
+.reader-body h4 { font-family: var(--serif); color: var(--plum); font-size: 1.1rem; margin: 26px 0 10px; }
+.reader-body p { margin: 0 0 16px; }
+.reader-body ul { margin: 0 0 18px; padding-left: 22px; }
+.reader-body li { margin-bottom: 7px; }
+.reader-body blockquote { border-left: 3px solid var(--terracotta); margin: 20px 0; padding: 6px 0 6px 20px; font-family: var(--serif); font-size: 1.15rem; font-style: italic; color: var(--plum); }
+.reader-body strong { color: var(--plum); }
+.reader-cta { margin-top: 34px; padding: 24px; background: var(--lilac-50); border-radius: var(--radius-sm); font-size: 0.97rem; }
+.reader-cta a { margin-top: 14px; }
+@media (max-width: 620px) { .reader-inner { padding: 44px 24px 34px; } }
+
+/* ── Admin overlay (editorial dashboard) ── */
+.admin-overlay { position: fixed; inset: 0; background: rgba(54,41,69,.72); backdrop-filter: blur(5px); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 20px; }
+.admin-overlay.open { display: flex; }
+.admin-login, .admin-panel { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); width: 100%; }
+.admin-login { max-width: 400px; padding: 42px 36px; text-align: center; }
+.admin-login .lotus { width: 56px; height: 28px; margin: 0 auto 18px; }
+.admin-login h2 { font-family: var(--serif); font-size: 1.45rem; color: var(--plum); margin-bottom: 6px; }
+.admin-login p { color: var(--muted); font-size: 0.92rem; margin-bottom: 20px; }
+.admin-login input { width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: var(--radius-sm); font-size: 1rem; text-align: center; letter-spacing: .2em; margin-bottom: 12px; font-family: var(--sans); }
+.admin-login input:focus { outline: 2px solid var(--lilac); border-color: var(--lilac); }
+.admin-login button { width: 100%; padding: 13px; background: var(--plum); color: #fff; border: none; border-radius: var(--radius-sm); font-family: var(--sans); font-weight: 600; font-size: .95rem; cursor: pointer; }
+.admin-login button:hover { background: var(--lilac-deep); }
+.login-error { display: none; color: var(--terracotta-deep); font-size: .85rem; margin-top: 10px; }
+.login-cancel { display: inline-block; margin-top: 16px; color: var(--muted); font-size: .85rem; text-decoration: none; }
+.login-cancel:hover { color: var(--plum); }
+.admin-panel { max-width: 860px; max-height: 92vh; display: none; flex-direction: column; overflow: hidden; }
+.admin-panel.visible { display: flex; }
+.admin-close { position: absolute; top: 14px; right: 16px; background: none; border: none; font-size: 1.4rem; color: var(--muted); cursor: pointer; }
+.admin-header { padding: 30px 34px 18px; border-bottom: 1px solid var(--border); position: relative; }
+.admin-header h2 { font-family: var(--serif); font-size: 1.4rem; color: var(--plum); margin-bottom: 4px; }
+.admin-header p { color: var(--muted); font-size: .88rem; }
+.admin-tabs { display: flex; gap: 8px; padding: 16px 34px 0; flex-wrap: wrap; }
+.admin-tab { border: 1px solid var(--border); background: var(--card); color: var(--muted); font-family: var(--sans); font-size: .85rem; font-weight: 600; padding: 9px 16px; border-radius: 999px; cursor: pointer; }
+.admin-tab.active { background: var(--plum); color: #fff; border-color: var(--plum); }
+.admin-body { padding: 22px 34px 30px; overflow-y: auto; }
+.admin-body label { display: block; font-family: var(--sans); font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--plum); margin: 16px 0 6px; }
+.admin-body input, .admin-body select, .admin-body textarea {
+  width: 100%; padding: 11px 14px; border: 1px solid var(--border); border-radius: var(--radius-sm);
+  font-family: var(--sans); font-size: .95rem; color: var(--ink); background: #fff;
+}
+.admin-body textarea { resize: vertical; }
+.admin-body input:focus, .admin-body select:focus, .admin-body textarea:focus { outline: 2px solid var(--lilac); border-color: var(--lilac); }
+.cat-row { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 8px; }
+.cat-row label { display: inline-flex; align-items: center; gap: 6px; margin: 0; text-transform: none; font-weight: 500; font-size: .9rem; color: var(--ink); }
+.admin-publish-row { display: flex; gap: 12px; align-items: center; margin-top: 26px; flex-wrap: wrap; }
+.admin-publish-row .btn { cursor: pointer; }
+.admin-status { font-size: .88rem; color: var(--muted); }
+.admin-status.ok { color: #4A7C6F; font-weight: 600; }
+.admin-status.err { color: var(--terracotta-deep); font-weight: 600; }
+.fetch-btn { background: var(--lilac-50); border: 1px solid var(--lilac); color: var(--lilac-deep); padding: 10px 16px; border-radius: var(--radius-sm); font-family: var(--sans); font-weight: 600; font-size: .88rem; cursor: pointer; margin-top: 8px; }
+.fetch-btn:hover { background: var(--lilac-100); }
+.post-list { display: flex; flex-direction: column; gap: 10px; }
+.post-list-item { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border: 1px solid var(--border); border-radius: var(--radius-sm); }
+.post-list-info { flex: 1; min-width: 0; }
+.post-list-title { font-weight: 600; color: var(--plum); font-size: .95rem; }
+.post-list-meta { font-size: .78rem; color: var(--muted); margin-top: 2px; }
+.post-status { font-size: .72rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; }
+.post-status.published { background: #E7F2EE; color: #4A7C6F; }
+.post-status.draft { background: var(--sand); color: var(--terracotta-deep); }
+.post-actions { display: flex; gap: 6px; }
+.post-actions button { border: 1px solid var(--border); background: var(--card); color: var(--ink); font-size: .78rem; padding: 7px 10px; border-radius: 8px; cursor: pointer; font-family: var(--sans); }
+.post-actions button:hover { border-color: var(--lilac); }
+.post-actions .btn-del:hover { border-color: var(--terracotta); color: var(--terracotta-deep); }
+.empty-posts { text-align: center; color: var(--muted); padding: 30px; }
+.type-pill { font-size: .68rem; font-weight: 700; background: var(--lilac-50); color: var(--lilac-deep); padding: 2px 8px; border-radius: 999px; margin-left: 8px; }
+@media (max-width: 640px) {
+  .admin-body, .admin-tabs, .admin-header { padding-left: 20px; padding-right: 20px; }
+  .post-list-item { flex-wrap: wrap; }
+  .post-actions { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-row">
+    <a href="/" class="brand">
+      <img src="/images/logo-header.png" alt="AD Counselling and Wellness, Newtownabbey, lotus flower logo" width="260" height="40">
+    </a>
+    <nav class="main-nav">
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/services.html">Services</a>
+      <a href="/articles.html" class="active">Articles</a>
+      <a href="/fees.html">Fees</a>
+      <a href="/book.html">My Book</a>
+      <a href="/contact.html" class="nav-mobile-cta">Get in Touch</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="/contact.html" class="btn btn-primary">Get in Touch</a>
+      <button class="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="page-hero">
+  <div class="container container-narrow">
+    <p class="kicker" style="justify-content:center;">Articles</p>
+    <h1>Writing to support you</h1>
+    <p class="lede">Guides on self care, somatic wellness and mental health, alongside pieces I have written for the local press and professional directories.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="art-filters" id="artFilters">
+      <button class="filter-chip active" data-filter="all">All</button>
+      <button class="filter-chip" data-filter="wellbeing">Wellbeing</button>
+      <button class="filter-chip" data-filter="somatic">Somatic</button>
+      <button class="filter-chip" data-filter="mental-health">Mental Health</button>
+      <button class="filter-chip" data-filter="community">Community</button>
+      <button class="filter-chip" data-filter="publications">Published In</button>
+    </div>
+    <div class="grid-3" id="artGrid"></div>
+    <p class="art-empty" id="artEmpty" style="display:none;">No articles in this category yet.</p>
+  </div>
+</section>
+
+<section class="section-tint">
+  <div class="container container-narrow text-center">
+    <p class="kicker" style="justify-content:center;">Take it gently</p>
+    <h2>If something here resonates</h2>
+    <p class="lede">Reading is a lovely first step. When you feel ready to talk it through, you are very welcome to get in touch.</p>
+    <a href="/contact.html" class="btn btn-primary">Get in Touch</a>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="foot-brand">
+          <img src="/images/logo-lotus.png" alt="" width="40" height="20">
+          <span>Ashleigh Duncan</span>
+        </div>
+        <p>Bespoke therapy in Newtownabbey: counselling, somatic experiencing and wellness coaching, offering a soft place to land when things are hard.</p>
+        <div class="bacp-badge-card">
+          <img src="/images/bacp-badge.png" alt="BACP Registered Member 246921, MBACP, British Association for Counselling and Psychotherapy" width="220" height="99" loading="lazy">
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/services.html">Services</a></li>
+          <li><a href="/articles.html">Articles</a></li>
+          <li><a href="/book.html">My Book</a></li>
+          <li><a href="/fees.html">Fees</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services.html#counselling">Counselling</a></li>
+          <li><a href="/services.html#somatic">Somatic Experiencing</a></li>
+          <li><a href="/services.html#wellness">Wellness Coaching</a></li>
+          <li><a href="/services.html#reiki">Reiki & Energy Work</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li>161 Antrim Road, Glengormley</li>
+          <li>Newtownabbey, BT36 7QR</li>
+          <li><a href="tel:02890839110">028 9083 9110</a></li>
+          <li><a href="mailto:ashlee_d@hotmail.com">Email me</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Ashleigh Duncan Counselling & Somatic Wellness. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ── READER MODAL ── -->
+<div class="reader-overlay" id="readerOverlay" onclick="if(event.target===this) closeReader()">
+  <div class="reader-card">
+    <button class="reader-close" onclick="closeReader()" aria-label="Close article">&times;</button>
+    <div class="reader-inner" id="readerContent"></div>
+  </div>
+</div>
+
+<!-- ── ADMIN OVERLAY ── -->
+<div class="admin-overlay" id="adminOverlay">
+
+  <!-- Login -->
+  <div class="admin-login" id="adminLogin">
+    <img class="lotus" src="/images/logo-lotus.png" alt="">
+    <h2>Editorial Access</h2>
+    <p>Enter your password to open the writing dashboard</p>
+    <input type="password" id="adminPass" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" maxlength="30"
+      onkeydown="if(event.key==='Enter') adminLogin()" autocomplete="current-password">
+    <button onclick="adminLogin()">Open Dashboard</button>
+    <div class="login-error" id="loginError">Incorrect password. Please try again.</div>
+    <a class="login-cancel" href="/articles.html">&larr; Return to articles</a>
+  </div>
+
+  <!-- Panel -->
+  <div class="admin-panel" id="adminPanel">
+    <button class="admin-close" id="adminClose" aria-label="Close panel">&times;</button>
+    <div class="admin-header">
+      <h2>Writing Dashboard</h2>
+      <p>Write articles, share published pieces, and manage everything in one place</p>
+    </div>
+    <div class="admin-tabs">
+      <button class="admin-tab active" data-tab="write">Write New Article</button>
+      <button class="admin-tab" data-tab="link">Share a Link</button>
+      <button class="admin-tab" data-tab="posts">All Posts</button>
+    </div>
+    <div class="admin-body">
+
+      <!-- Write tab -->
+      <div id="tab-write">
+        <label for="f-title">Title</label>
+        <input id="f-title" type="text" placeholder="A gentle title for your article" maxlength="120">
+        <label>Categories</label>
+        <div class="cat-row" id="f-cat">
+          <label><input type="checkbox" value="wellbeing"> Wellbeing</label>
+          <label><input type="checkbox" value="somatic"> Somatic</label>
+          <label><input type="checkbox" value="mental-health"> Mental Health</label>
+          <label><input type="checkbox" value="community"> Community</label>
+        </div>
+        <label for="f-excerpt">Short excerpt (shows on the card and in search results)</label>
+        <textarea id="f-excerpt" rows="2" maxlength="220" placeholder="One or two sentences to draw the reader in"></textarea>
+        <label for="f-body">Your article (blank line between paragraphs, ## for section headings, - for lists, &gt; for quotes, **bold** works)</label>
+        <textarea id="f-body" rows="12" placeholder="Write your article here"></textarea>
+        <div class="admin-publish-row">
+          <button class="btn btn-primary" onclick="publishArticle()">Publish</button>
+          <span class="admin-status" id="writeStatus"></span>
+        </div>
+      </div>
+
+      <!-- Share a link tab -->
+      <div id="tab-link" style="display:none">
+        <label for="l-url">Link to the published piece</label>
+        <input id="l-url" type="url" placeholder="https://www.belfastlive.co.uk/your-article">
+        <button class="fetch-btn" onclick="fetchLinkDetails()">Fetch details from the link</button>
+        <label for="l-publisher">Published in</label>
+        <input id="l-publisher" type="text" placeholder="e.g. Belfast Live, Counselling Directory, Local press">
+        <label for="l-title">Title</label>
+        <input id="l-title" type="text" maxlength="120" placeholder="Title of the piece">
+        <label for="l-teaser">Short teaser (what it is about)</label>
+        <textarea id="l-teaser" rows="3" maxlength="320" placeholder="A sentence or two about the piece"></textarea>
+        <label for="l-cat">Category</label>
+        <select id="l-cat">
+          <option value="wellbeing">Wellbeing</option>
+          <option value="somatic">Somatic</option>
+          <option value="mental-health">Mental Health</option>
+          <option value="community">Community</option>
+        </select>
+        <div class="admin-publish-row">
+          <button class="btn btn-primary" onclick="publishLink()">Publish</button>
+          <span class="admin-status" id="linkStatus"></span>
+        </div>
+      </div>
+
+      <!-- Posts tab -->
+      <div id="tab-posts" style="display:none">
+        <div class="post-list" id="postList"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════ CONFIG — GitHub-backed storage ═══════════════
+const ADMIN_PASS = 'lotus-writing-2026';
+const GH_OWNER   = 'ashleighweb';
+const GH_REPO    = 'web';
+const GH_BRANCH  = 'main';
+const GH_FILE    = 'posts.json';
+const BASE_URL   = 'https://www.adcounsellingnewtownabbey.co.uk';
+
+function getToken() { return sessionStorage.getItem('ad_gh_token') || ''; }
+
+let _postsCache = null;
+let _ghFileSha  = null;
+let adminAuthed = false;
+let activeFilter = 'all';
+
+const CAT_LABELS = { wellbeing: 'Wellbeing', somatic: 'Somatic', 'mental-health': 'Mental Health', community: 'Community' };
+
+// ═══════════════ PUBLIC GRID ═══════════════
+async function loadPosts() {
+  try {
+    const res = await fetch('/posts.json?t=' + Date.now());
+    if (!res.ok) throw new Error('http ' + res.status);
+    const data = await res.json();
+    _postsCache = Array.isArray(data) ? data : [];
+  } catch (e) {
+    _postsCache = [];
+  }
+  renderGrid();
+  return _postsCache;
+}
+
+function getAllPosts() { return _postsCache || []; }
+
+function catLabel(cats) {
+  const arr = Array.isArray(cats) ? cats : (cats ? [cats] : []);
+  return arr.map(function(c) { return CAT_LABELS[c] || c; }).join(' \u00B7 ') || 'Article';
+}
+
+function slugify(str) {
+  return str.toString().toLowerCase().trim()
+    .replace(/<[^>]+>/g, '')
+    .replace(/&/g, ' and ')
+    .replace(/["'']/g, '')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/[\s_]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+function formatDate(d) {
+  if (!d) return '';
+  const dt = new Date(d + 'T00:00:00');
+  return dt.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+
+function esc(s) { return (s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+
+function renderGrid() {
+  const grid  = document.getElementById('artGrid');
+  const empty = document.getElementById('artEmpty');
+  const all = getAllPosts().filter(function(p){ return p.status === 'published'; })
+                           .sort(function(a,b){ return new Date(b.date) - new Date(a.date); });
+  const filtered = activeFilter === 'all' ? all :
+    (activeFilter === 'publications' ? all.filter(function(p){ return p.type === 'publication'; })
+                                     : all.filter(function(p){ return p.type !== 'publication' && (Array.isArray(p.category) ? p.category : [p.category]).indexOf(activeFilter) !== -1; }));
+
+  if (filtered.length === 0) { grid.innerHTML = ''; empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+
+  grid.innerHTML = filtered.map(function(p) {
+    const slug = slugify(p.title);
+    const meta = formatDate(p.date) + (p.readTime ? ' \u00B7 ' + esc(p.readTime) : '');
+    const safeTitle = esc(p.title).replace(/&lt;/g,'&amp;lt;').replace(/&gt;/g,'&amp;gt;');
+    if (p.type === 'publication') {
+      return '<article class="card art-card" onclick="window.open(this.dataset.url, \'_blank\', \'noopener\')" data-url="' + esc(p.url) + '">' +
+        '<div class="art-pub-strip"><img src="/images/logo-lotus.png" alt=""><span class="pub-name">' + esc(p.publisher) + '</span></div>' +
+        '<div class="art-body">' +
+        '<div class="art-cat">Published in ' + esc(p.publisher) + '</div>' +
+        '<h3>' + safeTitle + '</h3>' +
+        '<p class="art-teaser">' + esc(p.teaser) + '</p>' +
+        '<div class="art-meta"><span>' + meta + '</span><a class="art-link" href="' + esc(p.url) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">Read on ' + esc(p.publisher) + ' &rarr;</a></div>' +
+        '</div></article>';
+    }
+    const img = '/og/og_' + slug + '.jpg';
+    return '<article class="card art-card" onclick="openReader(this.dataset.id)" data-id="' + esc(p.id) + '">' +
+      '<div class="art-img"><img src="' + img + '" alt="" loading="lazy" onerror="this.parentNode.style.display=\'none\'"></div>' +
+      '<div class="art-body">' +
+      '<div class="art-cat">' + catLabel(p.category) + '</div>' +
+      '<h3>' + safeTitle + '</h3>' +
+      '<p class="art-teaser">' + esc(p.excerpt) + '</p>' +
+      '<div class="art-meta"><span>' + meta + '</span><a class="art-link" href="/articles/' + slug + '.html" onclick="event.stopPropagation()">Read article &rarr;</a></div>' +
+      '</div></article>';
+  }).join('');
+}
+
+document.querySelectorAll('#artFilters .filter-chip').forEach(function(chip) {
+  chip.addEventListener('click', function() {
+    document.querySelectorAll('#artFilters .filter-chip').forEach(function(c){ c.classList.remove('active'); });
+    chip.classList.add('active');
+    activeFilter = chip.dataset.filter;
+    renderGrid();
+  });
+});
+
+// ═══════════════ READER MODAL ═══════════════
+function openReader(id) {
+  const p = getAllPosts().find(function(x){ return x.id === id; });
+  if (!p) return;
+  const body = renderBodyToHtml(p.body || '');
+  document.getElementById('readerContent').innerHTML =
+    '<div class="art-cat">' + catLabel(p.category) + '</div>' +
+    '<h2>' + esc(p.title) + '</h2>' +
+    '<div class="reader-meta">' + formatDate(p.date) + (p.readTime ? ' \u00B7 ' + esc(p.readTime) : '') + '</div>' +
+    '<div class="reader-body">' + body + '</div>' +
+    '<div class="reader-cta"><strong>If something here resonates</strong> and you would like to talk it through, you are welcome to get in touch.<br><a href="/contact.html" class="btn btn-primary" style="display:inline-flex;margin-top:14px;">Get in Touch</a></div>';
+  document.getElementById('readerOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeReader() {
+  document.getElementById('readerOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { closeReader(); closeAdmin(); } });
+
+// ═══════════════ MARKDOWN-LITE PARSER ═══════════════
+function md(t) {
+  return t
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>');
+}
+function renderBodyToHtml(body) {
+  const lines = body.split(/\n/);
+  let html = '', inList = false, inQuote = false;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (line.trim() === '') { if (inList) { html += '</ul>'; inList = false; } if (inQuote) { html += '</blockquote>'; inQuote = false; } continue; }
+    if (/^###\s/.test(line)) { html += '<h4>' + md(line.replace(/^###\s/, '')) + '</h4>'; continue; }
+    if (/^##\s/.test(line))  { html += '<h3>' + md(line.replace(/^##\s/, '')) + '</h3>'; continue; }
+    if (/^#\s/.test(line))    { html += '<h3>' + md(line.replace(/^#\s/, '')) + '</h3>'; continue; }
+    if (/^[-*]\s/.test(line)) { if (!inList) { html += '<ul>'; inList = true; } html += '<li>' + md(line.replace(/^[-*]\s/, '')) + '</li>'; continue; }
+    if (/^>\s?/.test(line)) {
+      if (!inQuote) { html += '<blockquote>'; inQuote = true; }
+      html += md(line.replace(/^>\s?/, ''));
+      continue;
+    }
+    if (inList) { html += '</ul>'; inList = false; }
+    if (inQuote) { html += '</blockquote>'; inQuote = false; }
+    html += '<p>' + md(line) + '</p>';
+  }
+  if (inList) html += '</ul>';
+  if (inQuote) html += '</blockquote>';
+  return html;
+}
+
+// ═══════════════ ADMIN ═══════════════
+async function adminLogin() {
+  const val = document.getElementById('adminPass').value;
+  const err = document.getElementById('loginError');
+  if (val === ADMIN_PASS) {
+    adminAuthed = true;
+    err.style.display = 'none';
+    document.getElementById('adminPass').value = '';
+    const tok = prompt('Enter your GitHub token to enable saving (Kris can provide this):');
+    if (tok && tok.trim()) {
+      sessionStorage.setItem('ad_gh_token', tok.trim());
+      await fetchFileSha();
+    }
+    showPanel();
+  } else {
+    err.style.display = 'block';
+    document.getElementById('adminPass').value = '';
+  }
+}
+function showPanel() {
+  document.getElementById('adminLogin').style.display = 'none';
+  document.getElementById('adminPanel').classList.add('visible');
+  renderPostList();
+}
+function closeAdmin() {
+  document.getElementById('adminOverlay').classList.remove('open');
+}
+document.getElementById('adminClose').addEventListener('click', closeAdmin);
+document.querySelectorAll('.admin-tab').forEach(function(tab) {
+  tab.addEventListener('click', function() {
+    document.querySelectorAll('.admin-tab').forEach(function(t){ t.classList.remove('active'); });
+    tab.classList.add('active');
+    ['write','link','posts'].forEach(function(name) {
+      document.getElementById('tab-' + name).style.display = (tab.dataset.tab === name) ? '' : 'none';
+    });
+  });
+});
+
+// Hidden trigger: /articles.html#admin
+if (window.location.hash === '#admin') document.getElementById('adminOverlay').classList.add('open');
+
+// ═══════════════ GITHUB API ═══════════════
+async function fetchFileSha() {
+  const token = getToken();
+  if (!token) return;
+  try {
+    const res = await fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/' + GH_FILE, {
+      headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (res.ok) { const d = await res.json(); _ghFileSha = d.sha; }
+  } catch (e) { console.warn('sha fetch failed', e.message); }
+}
+
+async function savePosts(posts) {
+  const token = getToken();
+  if (!token) { alert('No GitHub token available. Please close the dashboard and log in again.'); return false; }
+  _postsCache = posts;
+  if (!_ghFileSha) await fetchFileSha();
+  const reqBody = {
+    message: 'Update posts.json from the writing dashboard',
+    content: btoa(unescape(encodeURIComponent(JSON.stringify(posts, null, 2)))),
+    branch: GH_BRANCH
+  };
+  if (_ghFileSha) reqBody.sha = _ghFileSha;
+  try {
+    const res = await fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/' + GH_FILE, {
+      method: 'PUT',
+      headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(reqBody)
+    });
+    if (res.ok) {
+      const d = await res.json();
+      _ghFileSha = d.content.sha;
+      return true;
+    }
+    console.warn('posts.json save failed', res.status);
+    return false;
+  } catch (e) { console.warn('posts.json save error', e.message); return false; }
+}
+
+async function pushFileToGitHub(fileName, content, commitMsg) {
+  const token = getToken();
+  if (!token) { console.warn('no token, skipping ' + fileName); return false; }
+  const ghApiBase = 'https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/';
+  let sha = null;
+  try {
+    const check = await fetch(ghApiBase + fileName, { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' } });
+    if (check.ok) { const d = await check.json(); sha = d.sha; }
+  } catch (e) {}
+  const reqBody = { message: commitMsg, content: btoa(unescape(encodeURIComponent(content))), branch: GH_BRANCH };
+  if (sha) reqBody.sha = sha;
+  try {
+    const res = await fetch(ghApiBase + fileName, {
+      method: 'PUT',
+      headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(reqBody)
+    });
+    return res.ok;
+  } catch (e) { console.warn('push error ' + fileName, e.message); return false; }
+}
+
+// ═══════════════ ARTICLE PAGE GENERATION ═══════════════
+function buildArticleHtml(post) {
+  const slug = slugify(post.title);
+  const cleanTitle = post.title.replace(/<[^>]+>/g, '');
+  const bodyHtml = renderBodyToHtml(post.body || '');
+  const cats = Array.isArray(post.category) ? post.category : [post.category || 'wellbeing'];
+  const catText = cats.map(function(c){ return CAT_LABELS[c] || c; }).join(' \u00B7 ');
+  const postDate = post.date || new Date().toISOString().slice(0,10);
+  const excerpt = (post.excerpt || '').replace(/"/g, "'");
+  const articleUrl = BASE_URL + '/articles/' + slug + '.html';
+  const ogImg = BASE_URL + '/og/og_' + slug + '.jpg';
+
+  const schemaObj = '{"@context":"https://schema.org","@type":"Article","headline":"' + cleanTitle.replace(/"/g, "'") + '","description":"' + excerpt + '","author":{"@type":"Person","name":"Ashleigh Duncan","jobTitle":"Counsellor MBACP","url":"' + BASE_URL + '"},"datePublished":"' + postDate + '","url":"' + articleUrl + '"}';
+
+  let h = '';
+  h += '<!DOCTYPE html>\n<html lang="en-GB">\n<head>\n';
+  h += '<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n';
+  h += '<title>' + cleanTitle + ' | Ashleigh Duncan Counselling</title>\n';
+  h += '<meta name="description" content="' + excerpt + '">\n';
+  h += '<link rel="canonical" href="' + articleUrl + '">\n\n';
+  h += '<meta property="og:title" content="' + cleanTitle + '">\n';
+  h += '<meta property="og:description" content="' + excerpt + '">\n';
+  h += '<meta property="og:type" content="article">\n';
+  h += '<meta property="og:url" content="' + articleUrl + '">\n';
+  h += '<meta property="og:image" content="' + ogImg + '">\n';
+  h += '<meta name="twitter:card" content="summary_large_image">\n';
+  h += '<meta name="twitter:title" content="' + cleanTitle + '">\n';
+  h += '<meta name="twitter:description" content="' + excerpt + '">\n';
+  h += '<meta name="twitter:image" content="' + ogImg + '">\n\n';
+  h += '<link rel="icon" href="/favicon-32.png" sizes="32x32">\n<link rel="apple-touch-icon" href="/apple-touch-icon.png">\n\n';
+  h += '<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n';
+  h += '<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel=\'stylesheet\'">\n';
+  h += '<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Work+Sans:wght@400;500;600;700&display=swap"></noscript>\n\n';
+  h += '<link rel="stylesheet" href="/style.css">\n\n';
+  h += '<script type="application/ld+json">\n' + schemaObj + '\n<\/scr' + 'ipt>\n';
+  h += '  <!-- Umami analytics -->\n  <script defer src="https://cloud.umami.is/script.js" data-website-id="5aeb19b1-5bf8-4fad-bec9-123066d5ea9c"><\/scr' + 'ipt>\n\n';
+  h += '<style>\n';
+  h += '.article-wrap { max-width: 760px; margin: 0 auto; padding: 56px 22px 80px; }\n';
+  h += '.article-wrap .art-cat { font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 12px; }\n';
+  h += '.article-wrap h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 14px; }\n';
+  h += '.article-meta { color: var(--muted); font-size: 0.9rem; margin-bottom: 34px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }\n';
+  h += '.article-body { color: var(--ink); font-size: 1.03rem; line-height: 1.8; }\n';
+  h += '.article-body h3 { font-family: var(--serif); color: var(--plum); font-size: 1.35rem; margin: 38px 0 12px; }\n';
+  h += '.article-body h4 { font-family: var(--serif); color: var(--plum); font-size: 1.12rem; margin: 28px 0 10px; }\n';
+  h += '.article-body p { margin: 0 0 16px; }\n';
+  h += '.article-body ul { margin: 0 0 18px; padding-left: 22px; }\n';
+  h += '.article-body li { margin-bottom: 7px; }\n';
+  h += '.article-body blockquote { border-left: 3px solid var(--terracotta); margin: 20px 0; padding: 6px 0 6px 20px; font-family: var(--serif); font-size: 1.15rem; font-style: italic; color: var(--plum); }\n';
+  h += '.article-body strong { color: var(--plum); }\n';
+  h += '.article-cta { margin-top: 44px; padding: 28px; background: var(--lilac-50); border-radius: var(--radius-sm); }\n';
+  h += '.article-cta a { margin-top: 14px; }\n';
+  h += '.back-link { display: inline-flex; margin-top: 40px; color: var(--lilac-deep); font-weight: 600; text-decoration: none; }\n';
+  h += '.back-link:hover { color: var(--terracotta); }\n';
+  h += '</style>\n</head>\n<body>\n\n';
+  h += '<header class="site-header">\n  <div class="nav-row">\n    <a href="/" class="brand">\n      <img src="/images/logo-header.png" alt="AD Counselling and Wellness, Newtownabbey, lotus flower logo" width="260" height="40">\n    </a>\n    <nav class="main-nav">\n      <a href="/">Home</a>\n      <a href="/about.html">About</a>\n      <a href="/services.html">Services</a>\n      <a href="/articles.html" class="active">Articles</a>\n      <a href="/fees.html">Fees</a>\n      <a href="/book.html">My Book</a>\n      <a href="/contact.html" class="nav-mobile-cta">Get in Touch</a>\n    </nav>\n    <div class="nav-cta">\n      <a href="/contact.html" class="btn btn-primary">Get in Touch</a>\n      <button class="menu-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>\n    </div>\n  </div>\n</header>\n\n';
+  h += '<main>\n<div class="article-wrap">\n';
+  h += '  <div class="art-cat">' + catText + '</div>\n';
+  h += '  <h1>' + cleanTitle + '</h1>\n';
+  h += '  <div class="article-meta">' + postDate + (post.readTime ? ' \u00B7 ' + post.readTime : '') + ' \u00B7 By Ashleigh Duncan, Counsellor MBACP</div>\n';
+  h += '  <div class="article-body">\n' + bodyHtml + '\n  </div>\n';
+  h += '  <div class="article-cta">\n    <p><strong>If something here resonates</strong> and you would like to talk it through with someone, you are very welcome to get in touch.</p>\n    <a href="/contact.html" class="btn btn-primary" style="display:inline-flex;">Get in Touch</a>\n  </div>\n';
+  h += '  <a class="back-link" href="/articles.html">&larr; Back to all articles</a>\n';
+  h += '</div>\n</main>\n\n';
+  h += '<footer class="site-footer">\n  <div class="container">\n    <div class="footer-grid">\n      <div>\n        <div class="foot-brand">\n          <img src="/images/logo-lotus.png" alt="" width="40" height="20">\n          <span>Ashleigh Duncan</span>\n        </div>\n        <p>Bespoke therapy in Newtownabbey: counselling, somatic experiencing and wellness coaching, offering a soft place to land when things are hard.</p>\n        <div class="bacp-badge-card">\n          <img src="/images/bacp-badge.png" alt="BACP Registered Member 246921, MBACP, British Association for Counselling and Psychotherapy" width="220" height="99" loading="lazy">\n        </div>\n      </div>\n      <div>\n        <h4>Explore</h4>\n        <ul>\n          <li><a href="/about.html">About</a></li>\n          <li><a href="/services.html">Services</a></li>\n          <li><a href="/articles.html">Articles</a></li>\n          <li><a href="/book.html">My Book</a></li>\n          <li><a href="/fees.html">Fees</a></li>\n        </ul>\n      </div>\n      <div>\n        <h4>Services</h4>\n        <ul>\n          <li><a href="/services.html#counselling">Counselling</a></li>\n          <li><a href="/services.html#somatic">Somatic Experiencing</a></li>\n          <li><a href="/services.html#wellness">Wellness Coaching</a></li>\n          <li><a href="/services.html#reiki">Reiki &amp; Energy Work</a></li>\n        </ul>\n      </div>\n      <div>\n        <h4>Contact</h4>\n        <ul>\n          <li>161 Antrim Road, Glengormley</li>\n          <li>Newtownabbey, BT36 7QR</li>\n          <li><a href="tel:02890839110">028 9083 9110</a></li>\n          <li><a href="mailto:ashlee_d@hotmail.com">Email me</a></li>\n        </ul>\n      </div>\n    </div>\n    <div class="foot-bottom">\n      <span>&copy; 2026 Ashleigh Duncan Counselling &amp; Somatic Wellness. All rights reserved.</span>\n    </div>\n  </div>\n</footer>\n<script src="/script.js"><\/scr' + 'ipt>\n</body>\n</html>';
+  return h;
+}
+
+// ═══════════════ OG IMAGE (canvas, brand palette) ═══════════════
+function generateOGImageData(post) {
+  const cleanTitle = post.title.replace(/<[^>]+>/g, '');
+  const cats = Array.isArray(post.category) ? post.category : [post.category || 'wellbeing'];
+  const catText = cats.map(function(c){ return (CAT_LABELS[c] || c).toUpperCase(); }).join(' \u00B7 ');
+  const excerpt = (post.excerpt || '').replace(/"/g, "'");
+
+  const canvas = document.createElement('canvas');
+  canvas.width = 1200; canvas.height = 630;
+  const ctx = canvas.getContext('2d');
+  const W = 1200, H = 630;
+
+  // cream background
+  ctx.fillStyle = '#FBF7F2';
+  ctx.fillRect(0, 0, W, H);
+  // terracotta top bar + plum bottom bar
+  ctx.fillStyle = '#C97B4A'; ctx.fillRect(0, 0, W, 6);
+  ctx.fillStyle = '#362945'; ctx.fillRect(0, H - 6, W, 6);
+
+  // lotus: 5 petals in lilac, centered top
+  ctx.save();
+  ctx.translate(600, 108);
+  ctx.fillStyle = '#9B7FBF';
+  for (let a = 0; a < 5; a++) {
+    const ang = (a - 2) * 0.5;
+    ctx.save();
+    ctx.rotate(ang);
+    ctx.beginPath();
+    ctx.ellipse(0, -30, 13, 34, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+  ctx.fillStyle = '#C97B4A';
+  ctx.beginPath();
+  ctx.ellipse(0, 22, 16, 10, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+
+  // kicker
+  ctx.fillStyle = '#AD6238';
+  ctx.font = '600 26px "Work Sans", sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText(catText, 600, 232);
+
+  // title, Fraunces, wrapped and auto-sized
+  ctx.fillStyle = '#362945';
+  let size = 62;
+  const drawWrapped = function(s) {
+    ctx.font = '500 ' + s + 'px "Fraunces", Georgia, serif';
+    const words = cleanTitle.split(' ');
+    const lines = [];
+    let cur = '';
+    for (const w of words) {
+      const test = cur ? cur + ' ' + w : w;
+      if (ctx.measureText(test).width > 980 && cur) { lines.push(cur); cur = w; }
+      else cur = test;
+    }
+    if (cur) lines.push(cur);
+    return lines;
+  };
+  let lines = drawWrapped(size);
+  while ((lines.length * size * 1.25) > 190 && size > 40) { size -= 4; lines = drawWrapped(size); }
+  ctx.font = '500 ' + size + 'px "Fraunces", Georgia, serif';
+  let y = 330;
+  for (const l of lines) { ctx.fillText(l, 600, y); y += size * 1.25; }
+
+  // excerpt line
+  if (excerpt) {
+    ctx.fillStyle = '#7C6E86';
+    ctx.font = '400 24px "Work Sans", sans-serif';
+    let e = excerpt;
+    while (ctx.measureText(e).width > 900 && e.length > 10) e = e.slice(0, -2);
+    if (e !== excerpt) e += '\u2026';
+    ctx.fillText(e, 600, y + 34);
+  }
+
+  // site line
+  ctx.fillStyle = '#6F4F97';
+  ctx.font = '600 24px "Work Sans", sans-serif';
+  ctx.fillText('Ashleigh Duncan \u00B7 Counselling & Somatic Wellness', 600, H - 52);
+
+  return canvas.toDataURL('image/jpeg', 0.92);
+}
+
+// ═══════════════ SITEMAP ═══════════════
+function buildSitemapXml(publishedArticles) {
+  const base = [
+    { loc: '/', priority: '1.0' },
+    { loc: '/about.html', priority: '0.9' },
+    { loc: '/services.html', priority: '0.9' },
+    { loc: '/book.html', priority: '0.8' },
+    { loc: '/fees.html', priority: '0.7' },
+    { loc: '/contact.html', priority: '0.8' },
+    { loc: '/articles.html', priority: '0.8' }
+  ];
+  let xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+  base.forEach(function(p) {
+    xml += '  <url><loc>' + BASE_URL + p.loc + '</loc><priority>' + p.priority + '</priority></url>\n';
+  });
+  publishedArticles.forEach(function(p) {
+    xml += '  <url><loc>' + BASE_URL + '/articles/' + slugify(p.title) + '.html</loc><priority>0.6</priority></url>\n';
+  });
+  xml += '</urlset>';
+  return xml;
+}
+
+async function updateSitemapFromPosts(posts) {
+  const token = getToken();
+  if (!token) return;
+  const published = posts.filter(function(p){ return p.status === 'published' && p.type !== 'publication'; });
+  await pushFileToGitHub('sitemap.xml', buildSitemapXml(published), 'Auto-update sitemap (writing dashboard)');
+}
+
+// ═══════════════ PUBLISH FLOWS ═══════════════
+function uid() { return 'post-' + Date.now() + '-' + Math.random().toString(36).slice(2, 6); }
+
+async function publishArticle() {
+  const status = document.getElementById('writeStatus');
+  const title = document.getElementById('f-title').value.trim();
+  const body = document.getElementById('f-body').value.trim();
+  const excerpt = document.getElementById('f-excerpt').value.trim();
+  const cats = Array.from(document.querySelectorAll('#f-cat input:checked')).map(function(c){ return c.value; });
+  const editingId = document.getElementById('f-title').dataset.editingId;
+
+  if (!title || !body) { status.className = 'admin-status err'; status.textContent = 'Please add a title and some body text.'; return; }
+
+  const posts = getAllPosts();
+  let post;
+  if (editingId) {
+    post = posts.find(function(p){ return p.id === editingId; });
+    if (!post) post = { id: editingId, type: 'article', date: new Date().toISOString().slice(0,10) };
+    post.title = title; post.body = body; post.excerpt = excerpt || body.slice(0, 156);
+    post.category = cats.length ? cats : ['wellbeing']; post.status = 'published';
+    post.readTime = Math.max(2, Math.round(body.split(/\s+/).length / 200)) + ' min read';
+    delete document.getElementById('f-title').dataset.editingId;
+  } else {
+    post = {
+      id: uid(), type: 'article', status: 'published', featured: false,
+      title: title, excerpt: excerpt || body.slice(0, 156),
+      body: body, category: cats.length ? cats : ['wellbeing'],
+      date: new Date().toISOString().slice(0,10),
+      readTime: Math.max(2, Math.round(body.split(/\s+/).length / 200)) + ' min read'
+    };
+    posts.unshift(post);
+  }
+
+  status.className = 'admin-status'; status.textContent = 'Publishing\u2026';
+  const okPosts = await savePosts(posts);
+  if (!okPosts) { status.className = 'admin-status err'; status.textContent = 'Could not save posts. Check the GitHub token and try again.'; return; }
+  const slug = slugify(post.title);
+  const okPage = await pushFileToGitHub('articles/' + slug + '.html', buildArticleHtml(post), 'Auto-publish: ' + post.title);
+
+  // OG image
+  const dataUrl = generateOGImageData(post);
+  const base64 = dataUrl.split(',')[1];
+  const token = getToken();
+  if (token) {
+    let sha = null;
+    try {
+      const check = await fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/og/og_' + slug + '.jpg', { headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' } });
+      if (check.ok) { const d = await check.json(); sha = d.sha; }
+    } catch (e) {}
+    const reqBody = { message: 'Auto-generate OG image: ' + post.title, content: base64, branch: GH_BRANCH };
+    if (sha) reqBody.sha = sha;
+    try {
+      await fetch('https://api.github.com/repos/' + GH_OWNER + '/' + GH_REPO + '/contents/og/og_' + slug + '.jpg', {
+        method: 'PUT', headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(reqBody)
+      });
+    } catch (e) { console.warn('OG push failed', e.message); }
+  }
+
+  await updateSitemapFromPosts(posts);
+
+  status.className = 'admin-status ok';
+  status.textContent = okPage ? 'Published. It will appear on the site within a minute or two.' : 'Published to the article list (standalone page failed, check token).';
+  document.getElementById('f-title').value = '';
+  document.getElementById('f-excerpt').value = '';
+  document.getElementById('f-body').value = '';
+  document.querySelectorAll('#f-cat input').forEach(function(c){ c.checked = false; });
+  renderPostList();
+  renderGrid();
+}
+
+async function fetchLinkDetails() {
+  const status = document.getElementById('linkStatus');
+  const url = document.getElementById('l-url').value.trim();
+  if (!url) { status.className = 'admin-status err'; status.textContent = 'Paste a link first.'; return; }
+  status.className = 'admin-status'; status.textContent = 'Fetching details\u2026';
+  try {
+    const res = await fetch('https://api.microlink.io/?url=' + encodeURIComponent(url));
+    const data = await res.json();
+    if (data.status === 'success' && data.data) {
+      const d = data.data;
+      if (d.title) document.getElementById('l-title').value = d.title;
+      if (d.publisher) document.getElementById('l-publisher').value = d.publisher;
+      else if (d.siteName) document.getElementById('l-publisher').value = d.siteName;
+      if (d.description) document.getElementById('l-teaser').value = d.description.slice(0, 300);
+      status.className = 'admin-status ok'; status.textContent = 'Details fetched. Tweak anything you like, then publish.';
+    } else {
+      status.className = 'admin-status err'; status.textContent = 'Could not fetch automatically. Fill the fields in manually.';
+    }
+  } catch (e) {
+    status.className = 'admin-status err'; status.textContent = 'Fetch failed. Fill the fields in manually.';
+  }
+}
+
+async function publishLink() {
+  const status = document.getElementById('linkStatus');
+  const url = document.getElementById('l-url').value.trim();
+  const publisher = document.getElementById('l-publisher').value.trim();
+  const title = document.getElementById('l-title').value.trim();
+  const teaser = document.getElementById('l-teaser').value.trim();
+  const cat = document.getElementById('l-cat').value;
+
+  if (!url || !title || !publisher) { status.className = 'admin-status err'; status.textContent = 'Link, title and publication name are all needed.'; return; }
+
+  const posts = getAllPosts();
+  posts.unshift({
+    id: uid(), type: 'publication', status: 'published', featured: false,
+    title: title, publisher: publisher, url: url, teaser: teaser,
+    category: cat || 'wellbeing', date: new Date().toISOString().slice(0,10),
+    readTime: 'External link'
+  });
+  status.className = 'admin-status'; status.textContent = 'Publishing\u2026';
+  const ok = await savePosts(posts);
+  if (!ok) { status.className = 'admin-status err'; status.textContent = 'Could not save. Check the GitHub token and try again.'; return; }
+  status.className = 'admin-status ok'; status.textContent = 'Published. It will appear on the site within a minute or two.';
+  ['l-url','l-publisher','l-title','l-teaser'].forEach(function(id){ document.getElementById(id).value = ''; });
+  renderPostList();
+  renderGrid();
+}
+
+// ═══════════════ POSTS TAB ═══════════════
+function renderPostList() {
+  const posts = getAllPosts();
+  const list = document.getElementById('postList');
+  if (posts.length === 0) { list.innerHTML = '<div class="empty-posts"><p>No posts yet. Write an article or share a link.</p></div>'; return; }
+  list.innerHTML = posts.map(function(p) {
+    const typePill = p.type === 'publication' ? '<span class="type-pill">' + esc(p.publisher) + '</span>' : '';
+    const meta = (p.type === 'publication' ? 'Published in ' + esc(p.publisher) : catLabel(p.category)) + ' \u00B7 ' + formatDate(p.date);
+    return '<div class="post-list-item">' +
+      '<div class="post-list-info"><div class="post-list-title">' + esc(p.title) + typePill + '</div>' +
+      '<div class="post-list-meta">' + meta + '</div></div>' +
+      '<span class="post-status ' + p.status + '">' + p.status + '</span>' +
+      '<div class="post-actions">' +
+      (p.type === 'publication' ?
+        '' :
+        '<button onclick="editPost(\'' + p.id + '\')">Edit</button>') +
+      '<button onclick="toggleStatus(\'' + p.id + '\')">' + (p.status === 'published' ? 'Unpublish' : 'Publish') + '</button>' +
+      '<button class="btn-del" onclick="deletePost(\'' + p.id + '\')">Delete</button>' +
+      '</div></div>';
+  }).join('');
+}
+
+function editPost(id) {
+  const post = getAllPosts().find(function(p){ return p.id === id; });
+  if (!post) return;
+  document.querySelectorAll('.admin-tab').forEach(function(t){ t.classList.remove('active'); });
+  document.querySelector('[data-tab="write"]').classList.add('active');
+  ['write','link','posts'].forEach(function(n){ document.getElementById('tab-' + n).style.display = (n === 'write') ? '' : 'none'; });
+  document.getElementById('f-title').value = post.title.replace(/<[^>]+>/g, '');
+  document.getElementById('f-title').dataset.editingId = post.id;
+  document.getElementById('f-excerpt').value = post.excerpt || '';
+  document.getElementById('f-body').value = post.body || '';
+  document.querySelectorAll('#f-cat input').forEach(function(cb) {
+    cb.checked = (Array.isArray(post.category) ? post.category : [post.category]).indexOf(cb.value) !== -1;
+  });
+}
+
+async function toggleStatus(id) {
+  const posts = getAllPosts();
+  const post = posts.find(function(p){ return p.id === id; });
+  if (!post) return;
+  post.status = post.status === 'published' ? 'draft' : 'published';
+  await savePosts(posts);
+  await updateSitemapFromPosts(posts);
+  renderPostList();
+  renderGrid();
+}
+
+async function deletePost(id) {
+  if (!confirm('Delete this post? This removes it from the articles page.')) return;
+  const posts = getAllPosts().filter(function(p){ return p.id !== id; });
+  await savePosts(posts);
+  await updateSitemapFromPosts(posts);
+  renderPostList();
+  renderGrid();
+}
+
+// ═══════════════ INIT ═══════════════
+loadPosts();
+</script>
+</body>
+</html>

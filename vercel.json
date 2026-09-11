@@ -1,20 +1,84 @@
 {
   "redirects": [
-    { "source": "/about-5", "destination": "/about.html", "permanent": true },
-    { "source": "/personal-statementtraining", "destination": "/about.html", "permanent": true },
-    { "source": "/associates", "destination": "/about.html", "permanent": true },
-    { "source": "/about", "destination": "/about.html", "permanent": true },
-    { "source": "/recognitionawards", "destination": "/about.html", "permanent": true },
-    { "source": "/counselling", "destination": "/services.html", "permanent": true },
-    { "source": "/reiki", "destination": "/services.html", "permanent": true },
-    { "source": "/alternative-therapies", "destination": "/services.html", "permanent": true },
-    { "source": "/services", "destination": "/services.html", "permanent": true },
-    { "source": "/fees", "destination": "/fees.html", "permanent": true },
-    { "source": "/contact", "destination": "/contact.html", "permanent": true },
-    { "source": "/book", "destination": "/book.html", "permanent": true },
-    { "source": "/blog", "destination": "/", "permanent": true },
-    { "source": "/blog-feed", "destination": "/", "permanent": true },
-    { "source": "/search", "destination": "/", "permanent": true },
-    { "source": "/the-book", "destination": "/book.html", "permanent": true }
+    {
+      "source": "/about-5",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/personal-statementtraining",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/associates",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/recognitionawards",
+      "destination": "/about.html",
+      "permanent": true
+    },
+    {
+      "source": "/counselling",
+      "destination": "/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/reiki",
+      "destination": "/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/alternative-therapies",
+      "destination": "/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/services.html",
+      "permanent": true
+    },
+    {
+      "source": "/fees",
+      "destination": "/fees.html",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact.html",
+      "permanent": true
+    },
+    {
+      "source": "/book",
+      "destination": "/book.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/articles.html",
+      "permanent": true
+    },
+    {
+      "source": "/blog-feed",
+      "destination": "/articles.html",
+      "permanent": true
+    },
+    {
+      "source": "/search",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/the-book",
+      "destination": "/book.html",
+      "permanent": true
+    }
   ]
 }
